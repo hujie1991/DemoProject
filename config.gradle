@@ -1,0 +1,12 @@
+
+/*加载配置信息*/
+ext {
+    //加载版本信息
+    MinSdkVersion = 24
+    TargetSdkVersion = 28
+    CompileSdkVersion = 28
+
+    VersionCode = 2
+    VersionName = "1.2.1"
+    ApplicationId = "com.example.mytestapp"
+}

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MyTestApp</string>
+    <string name="guide_overlay_pad_tip_acc">1、请找到【更多已下载的服务】并点击；\n2、从列表中找到【%1s】并开启；\n3、完成后点击返回，直至回到无障碍设置页面;</string>
+</resources>
