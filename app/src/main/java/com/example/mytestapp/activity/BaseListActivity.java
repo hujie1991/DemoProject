@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,12 +17,10 @@ import com.example.mytestapp.entity.BaseItemEntity;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class BaseListActivity extends AppCompatActivity {
+public abstract class BaseListActivity extends BaseActivity {
 
     private RecyclerView mRecyclerView;
     private List<BaseItemEntity> datas = new ArrayList<>();
-
-    protected String TAG = getClass().getSimpleName();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

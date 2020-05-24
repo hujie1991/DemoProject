@@ -1,10 +1,16 @@
 package com.example.mytestapp.utils;
 
+import android.Manifest;
+import android.app.AppOpsManager;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Process;
 import android.provider.Settings;
+
+import androidx.annotation.RequiresApi;
 
 
 public class PermissionUtils {
@@ -83,6 +89,25 @@ public class PermissionUtils {
             }
         }
         return 1;
+    }
+
+    /**
+     * 判断是否开启查看应用使用权限
+     *
+     * @return true 有权限，false 没有权限
+     */
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    public static boolean isUsage(Context context) {
+        AppOpsManager appOps = (AppOpsManager) context.getSystemService(Context.APP_OPS_SERVICE);
+        int mode = appOps.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS, Process.myUid(), context.getPackageName());
+        if (mode == AppOpsManager.MODE_DEFAULT) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                return (context.checkCallingOrSelfPermission(Manifest.permission.PACKAGE_USAGE_STATS) == PackageManager.PERMISSION_GRANTED);
+            }
+            return true;
+        } else {
+            return (mode == AppOpsManager.MODE_ALLOWED);
+        }
     }
 
 }
