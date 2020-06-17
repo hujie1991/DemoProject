@@ -10,7 +10,7 @@ import android.view.accessibility.AccessibilityNodeInfo;
  */
 public class AccessibilityLogUtils {
 
-    public void dfsnode(AccessibilityNodeInfo node , int num){
+    public static void dfsnode(AccessibilityNodeInfo node , int num){
         StringBuilder stringBuilder = new StringBuilder();
         for(int i = 0 ;i < num ; i++){
             stringBuilder.append("__ ");    //父子节点之间的缩进

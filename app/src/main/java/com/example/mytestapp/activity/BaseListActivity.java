@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,7 +20,8 @@ import java.util.List;
 
 public abstract class BaseListActivity extends BaseActivity {
 
-    private RecyclerView mRecyclerView;
+    protected RecyclerView mRecyclerView;
+    protected LinearLayout llContentView;
     private List<BaseItemEntity> datas = new ArrayList<>();
 
     @Override
@@ -35,6 +37,7 @@ public abstract class BaseListActivity extends BaseActivity {
     public abstract  void onClickItem(int position, String value);
 
     public void initView() {
+        llContentView = findViewById(R.id.llContentView);
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         BaseListActivity.HomeRecycelAdapter homeRecycelAdapter = new BaseListActivity.HomeRecycelAdapter(datas);

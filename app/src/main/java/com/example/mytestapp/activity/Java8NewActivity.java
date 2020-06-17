@@ -1,6 +1,15 @@
 package com.example.mytestapp.activity;
 
+import android.content.Context;
+import android.content.Intent;
+import android.media.AudioAttributes;
+import android.media.AudioFocusRequest;
+import android.media.AudioManager;
+import android.net.Uri;
+import android.os.Build;
+import android.os.UserManager;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.mytestapp.entity.BaseItemEntity;
 
@@ -20,7 +29,9 @@ public class Java8NewActivity extends BaseListActivity {
         datas.add(new BaseItemEntity("onClick1", "1"));
         datas.add(new BaseItemEntity("onClick2", "2"));
         datas.add(new BaseItemEntity("onClick3", "3"));
-        datas.add(new BaseItemEntity("onClick4", "4"));
+        datas.add(new BaseItemEntity("抢占音频焦点", "4"));
+        datas.add(new BaseItemEntity("打开应用详情页", "5"));
+        datas.add(new BaseItemEntity("是否系统用户", "6"));
     }
 
     @Override
@@ -43,11 +54,22 @@ public class Java8NewActivity extends BaseListActivity {
                 break;
 
             case 4:
+                click4();
                 break;
 
             case 5:
+                click5();
+
+            case 6:
+                click6();
                 break;
         }
+    }
+
+    private void click6() {
+        UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
+        boolean isSystemUser = userManager.isSystemUser();
+        Toast.makeText(this, "isSystemUser = " + isSystemUser, Toast.LENGTH_LONG).show();
     }
 
     private void click3() {
@@ -103,6 +125,51 @@ public class Java8NewActivity extends BaseListActivity {
         int num = 1;
         Converter<String, Integer> converter1 = (form) -> Integer.valueOf(form + num);
     }
+
+    private AudioManager mAudioManager;
+    private AudioFocusRequest mFocusRequest;
+    private AudioAttributes mAudioAttributes;
+    AudioManager.OnAudioFocusChangeListener mListener = new AudioManager.OnAudioFocusChangeListener() {
+        @Override
+        public void onAudioFocusChange(int focusChange) {
+            Log.d(TAG, "focusChange = " + focusChange);
+        }
+    };
+
+    private void click4() {
+        mAudioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+        requestFocus();
+    }
+    private void click5() {
+        Intent intent = new Intent();
+        intent.setAction(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        intent.setData(Uri.parse("package:" + "com.coloros.speechassist"));
+        startActivity(intent);
+    }
+
+
+    public void requestFocus() {
+        int result;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            if (mFocusRequest == null) {
+                if (mAudioAttributes == null) {
+                    mAudioAttributes = new AudioAttributes.Builder()
+                            .setUsage(AudioAttributes.USAGE_MEDIA)
+                            .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                            .build();
+                }
+                mFocusRequest = new AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN)
+                        .setAudioAttributes(mAudioAttributes)
+                        .setWillPauseWhenDucked(true)
+                        .setOnAudioFocusChangeListener(mListener)
+                        .build();
+            }
+            result = mAudioManager.requestAudioFocus(mFocusRequest);
+        } else {
+            result = mAudioManager.requestAudioFocus(mListener, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN);
+        }
+    }
+
 
     @FunctionalInterface
     interface Converter<F, T> {

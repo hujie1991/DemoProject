@@ -2,15 +2,20 @@ package com.example.mytestapp.utils;
 
 import android.Manifest;
 import android.app.AppOpsManager;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Process;
 import android.provider.Settings;
+import android.text.TextUtils;
 
 import androidx.annotation.RequiresApi;
+
+import com.example.mytestapp.service.GreenAccessibilityService;
 
 
 public class PermissionUtils {
@@ -107,6 +112,49 @@ public class PermissionUtils {
             return true;
         } else {
             return (mode == AppOpsManager.MODE_ALLOWED);
+        }
+    }
+
+    /**
+     * 判断辅助功能是否开启
+     */
+    public static boolean isAccessibilitySettingsOn(Context mContext) {
+        int accessibilityEnabled = 0;
+        final String service = mContext.getPackageName() + "/" + GreenAccessibilityService.class.getCanonicalName();
+        try {
+            accessibilityEnabled = Settings.Secure.getInt(mContext.getApplicationContext().getContentResolver(), android.provider.Settings.Secure.ACCESSIBILITY_ENABLED);
+        } catch (Settings.SettingNotFoundException e) {
+            e.printStackTrace();
+        }
+        TextUtils.SimpleStringSplitter mStringColonSplitter = new TextUtils.SimpleStringSplitter(':');
+
+        if (accessibilityEnabled == 1) {
+            String settingValue = Settings.Secure.getString(mContext.getApplicationContext().getContentResolver(), Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES);
+            if (settingValue != null) {
+                mStringColonSplitter.setString(settingValue);
+                while (mStringColonSplitter.hasNext()) {
+                    String accessibilityService = mStringColonSplitter.next();
+                    if (accessibilityService.equalsIgnoreCase(service)) {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * 启动辅助功能页面
+     *
+     * @param context
+     */
+    public static void startAccessibility(Context context) {
+        try {
+            Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+            context.startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            e.printStackTrace();
         }
     }
 

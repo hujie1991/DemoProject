@@ -19,13 +19,15 @@ public class HomeActivity extends BaseListActivity {
 
     @Override
     public void initData(List<BaseItemEntity> datas) {
-        datas.add(new BaseItemEntity("权限设置", "MainActivity"));
-//        datas.add(new BaseItemEntity("步数传感器设置", "StepCounterActivity"));
-        datas.add(new BaseItemEntity("悬浮窗Activity", "SuspensionActivity"));
-        datas.add(new BaseItemEntity("设备管理器Activity", "DeviceAdminActivity"));
-        datas.add(new BaseItemEntity("RxJava练习", "RxJavaActivity"));
-        datas.add(new BaseItemEntity("java8新特性", "Java8NewActivity"));
         datas.add(new BaseItemEntity("读取应用使用记录", "UsageStatsActivity"));
+        datas.add(new BaseItemEntity("权限设置", "MainActivity"));
+        datas.add(new BaseItemEntity("java8新特性", "Java8NewActivity"));
+        datas.add(new BaseItemEntity("无障碍辅助功能", "AccessibilityServiceActivity"));
+        datas.add(new BaseItemEntity("截屏", "ScreenshotActivity"));
+//        datas.add(new BaseItemEntity("悬浮窗Activity", "SuspensionActivity"));
+//        datas.add(new BaseItemEntity("设备管理器Activity", "DeviceAdminActivity"));
+//        datas.add(new BaseItemEntity("RxJava练习", "RxJavaActivity"));
+//        datas.add(new BaseItemEntity("步数传感器设置", "StepCounterActivity"));
 //        datas.add(new BaseItemEntity("Activity生命周期", "ActivityLifeCycle"));
 //        datas.add(new BaseItemEntity("Hook", "HookActivity"));
 
@@ -50,13 +52,10 @@ public class HomeActivity extends BaseListActivity {
     private void initPermission() {
         permissions = new RxPermissions(this);
         permissionDisposable = permissions.request(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE)
-                .subscribe(new Consumer<Boolean>() {
-                    @Override
-                    public void accept(Boolean aBoolean) throws Exception {
-                        Log.d("HomeActivity", "aBoolean = " + aBoolean);
-                        if (aBoolean) {
+                .subscribe(aBoolean -> {
+                    Log.d("HomeActivity", "aBoolean = " + aBoolean);
+                    if (aBoolean) {
 
-                        }
                     }
                 });
         Log.d("HomeActivity", "permissionDisposable = " + permissionDisposable.isDisposed());
