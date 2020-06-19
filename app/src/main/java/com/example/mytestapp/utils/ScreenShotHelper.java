@@ -1,10 +1,12 @@
 package com.example.mytestapp.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.PixelFormat;
+import android.graphics.Point;
 import android.hardware.display.DisplayManager;
 import android.hardware.display.VirtualDisplay;
 import android.media.Image;
@@ -13,9 +15,14 @@ import android.media.projection.MediaProjection;
 import android.media.projection.MediaProjectionManager;
 import android.os.AsyncTask;
 import android.os.Handler;
+import android.view.WindowManager;
 
 import java.lang.ref.SoftReference;
 import java.nio.ByteBuffer;
+
+import io.reactivex.Observable;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.schedulers.Schedulers;
 
 public class ScreenShotHelper {
 
@@ -27,44 +34,42 @@ public class ScreenShotHelper {
     private ImageReader mImageReader;
     private MediaProjection mMediaProjection;
     private VirtualDisplay mVirtualDisplay;
-    private final SoftReference<Context> mRefContext;
+    private final SoftReference<Activity> mRefContext;
 
-    public ScreenShotHelper(Context context, int resultCode, Intent data, OnScreenShotListener onScreenShotListener) {
+    public ScreenShotHelper(Activity context, int resultCode, Intent data, OnScreenShotListener onScreenShotListener) {
         this.mOnScreenShotListener = onScreenShotListener;
         this.mRefContext = new SoftReference<>(context);
 
         mMediaProjection = getMediaProjectionManager().getMediaProjection(resultCode, data);
-        mImageReader = ImageReader.newInstance(getScreenWidth(), getScreenHeight(), PixelFormat.RGBA_8888, 1);
+        mImageReader = ImageReader.newInstance(getScreenWidth(), getScreenHeight(), PixelFormat.RGBA_8888, 2);
     }
 
     public void startScreenShot() {
         createVirtualDisplay();
 
         Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                new CreateBitmapTask().execute();
-            }
-        }, 1000);
+        handler.postDelayed(() -> new CreateBitmapTask().execute(), 1000);
+    }
+
+    public Observable<Bitmap> obserable() {
+        Observable<Bitmap> screenCaptureEntityObservable = Observable.create((ObservableOnSubscribe<Bitmap>) emitter -> {
+            createVirtualDisplay();
+            Thread.sleep(1000);
+            Image image = mImageReader.acquireLatestImage();
+            Bitmap bitmap = imageToBitmap(image);
+            emitter.onNext(bitmap);
+
+            mVirtualDisplay.release();
+            mMediaProjection.stop();
+        }).subscribeOn(Schedulers.io());
+
+        return screenCaptureEntityObservable;
     }
 
     public  class CreateBitmapTask extends AsyncTask<Image, Void, Bitmap> {
         @Override
         protected Bitmap doInBackground(Image... params) {
-            Image image = mImageReader.acquireLatestImage();
-            int width = image.getWidth();
-            int height = image.getHeight();
-            final Image.Plane[] planes = image.getPlanes();
-            final ByteBuffer buffer = planes[0].getBuffer();
-            int pixelStride = planes[0].getPixelStride();
-            int rowStride = planes[0].getRowStride();
-            int rowPadding = rowStride - pixelStride * width;
-            Bitmap bitmap = Bitmap.createBitmap(width + rowPadding / pixelStride, height, Bitmap.Config.ARGB_8888);
-            bitmap.copyPixelsFromBuffer(buffer);
-            bitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height);
-            image.close();
-            return bitmap;
+            return imageToBitmap(mImageReader.acquireLatestImage());
         }
 
         @Override
@@ -76,6 +81,21 @@ public class ScreenShotHelper {
                 mOnScreenShotListener.onFinish(bitmap);
             }
         }
+    }
+
+    protected Bitmap imageToBitmap(Image image) {
+        int width = image.getWidth();
+        int height = image.getHeight();
+        final Image.Plane[] planes = image.getPlanes();
+        final ByteBuffer buffer = planes[0].getBuffer();
+        int pixelStride = planes[0].getPixelStride();
+        int rowStride = planes[0].getRowStride();
+        int rowPadding = rowStride - pixelStride * width;
+        Bitmap bitmap = Bitmap.createBitmap(width + rowPadding / pixelStride, height, Bitmap.Config.ARGB_8888);
+        bitmap.copyPixelsFromBuffer(buffer);
+        bitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height);
+        image.close();
+        return bitmap;
     }
 
     private MediaProjectionManager getMediaProjectionManager() {
@@ -93,15 +113,21 @@ public class ScreenShotHelper {
         );
     }
 
-    private Context getContext() {
+    private Activity getContext() {
         return mRefContext.get();
     }
 
-    public static int getScreenWidth() {
-        return Resources.getSystem().getDisplayMetrics().widthPixels;
+    public int getScreenWidth() {
+        Point outSize = new Point();
+        WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
+        wm.getDefaultDisplay().getRealSize(outSize);
+        return outSize.x;
     }
 
-    public static int getScreenHeight() {
-        return Resources.getSystem().getDisplayMetrics().heightPixels;
+    public int getScreenHeight() {
+        Point outSize = new Point();
+        WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
+        wm.getDefaultDisplay().getRealSize(outSize);
+        return outSize.y;
     }
 }

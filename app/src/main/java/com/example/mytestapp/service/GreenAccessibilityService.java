@@ -52,7 +52,7 @@ public class GreenAccessibilityService extends AccessibilityService {
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
         if (event != null) {
-            Log.d(TAG, "event = " + event);
+            Log.d(TAG, "event.getType = " + event.getEventTime() + ", event = " + event);
             CharSequence packageName = event.getPackageName();
             CharSequence className = event.getClassName();
             if (!TextUtils.isEmpty(packageName) && packageName.toString().equals("com.android.systemui")

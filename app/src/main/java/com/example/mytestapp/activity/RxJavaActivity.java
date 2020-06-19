@@ -18,7 +18,7 @@ public class RxJavaActivity extends BaseListActivity {
     @Override
     public void initData(List<BaseItemEntity> datas) {
         datas.add(new BaseItemEntity("onClick0", "0"));
-        datas.add(new BaseItemEntity("onClick1", "1"));
+        datas.add(new BaseItemEntity("Observable.empty()", "1"));
         datas.add(new BaseItemEntity("onClick2", "2"));
         datas.add(new BaseItemEntity("onClick3", "3"));
         datas.add(new BaseItemEntity("onClick4", "4"));
@@ -32,6 +32,7 @@ public class RxJavaActivity extends BaseListActivity {
                 break;
 
             case 1:
+                onClick1();
                 break;
 
             case 2:
@@ -103,5 +104,29 @@ public class RxJavaActivity extends BaseListActivity {
         };
 
         objectObservable.subscribe(observer);
+    }
+
+    private void onClick1() {
+        Observable.empty().subscribe(new Observer<Object>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+                Log.d(TAG, "onSubscribe()");
+            }
+
+            @Override
+            public void onNext(Object s) {
+                Log.d(TAG, "onNext()");
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.d(TAG, "onError()");
+            }
+
+            @Override
+            public void onComplete() {
+                Log.d(TAG, "onComplete()");
+            }
+        });
     }
 }

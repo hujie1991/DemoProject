@@ -17,6 +17,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
+
 /**
  * @author hujie
  * Email: hujie1991@126.com
@@ -31,12 +33,14 @@ public class ScreenshotActivity extends BaseListActivity {
     @Override
     public void initData(List<BaseItemEntity> datas) {
         datas.add(new BaseItemEntity("点击截屏", "0"));
+        datas.add(new BaseItemEntity("延迟10秒截屏", "1"));
     }
 
     @Override
     public void initView() {
         super.initView();
         imageView = new ImageView(this);
+        imageView.setPadding(0, 20, 0, 0);
         llContentView.addView(imageView);
     }
 
@@ -44,18 +48,28 @@ public class ScreenshotActivity extends BaseListActivity {
     public void onClickItem(int position, String value) {
         if (position == 0) {
             if (mData != null) {
-                mRecyclerView.postDelayed(this::startScreenShot, 1000);
+                mRecyclerView.postDelayed(this::startScreenShot, 3000);
                 return;
             }
             MediaProjectionManager mediaProjectionManager = (MediaProjectionManager) getSystemService(Context.MEDIA_PROJECTION_SERVICE);
             startActivityForResult(mediaProjectionManager.createScreenCaptureIntent(), REQUEST_MEDIA_PROJECTION);
+        } else if (position == 1) {
+            new ScreenShotHelper(this, RESULT_OK, mData, null)
+                    .obserable()
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(bitmap -> {
+                        Toast.makeText(this, "截屏成功", Toast.LENGTH_SHORT).show();
+                        Log.d(TAG, "截屏成功");
+                        imageView.setImageBitmap(bitmap);
+                        saveCapture(bitmap);
+                    });
         }
     }
 
     private void startScreenShot() {
-        ScreenShotHelper screenShotHelper = new ScreenShotHelper(getApplicationContext(), RESULT_OK, mData, bitmap -> {
+        ScreenShotHelper screenShotHelper = new ScreenShotHelper(this, RESULT_OK, mData, bitmap -> {
             Toast.makeText(this, "截屏成功", Toast.LENGTH_SHORT).show();
-            Log.d("MainActivity", "截屏成功");
+            Log.d(TAG, "截屏成功");
             imageView.setImageBitmap(bitmap);
             saveCapture(bitmap);
         });
