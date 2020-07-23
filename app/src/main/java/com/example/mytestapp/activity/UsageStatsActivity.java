@@ -94,6 +94,6 @@ public class UsageStatsActivity extends BaseActivity {
         String result = builder.toString();
         tvContent.setText(result);
 
-        Log.d(TAG, "event count:" + count);
+        Log.d(TAG, "result = " + result);
     }
 }

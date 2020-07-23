@@ -25,6 +25,7 @@
         <activity android:name=".activity.StepCounterActivity" />
         <activity android:name=".activity.AccessibilityServiceActivity" />
         <activity android:name=".activity.ScreenshotActivity" />
+        <activity android:name=".activity.MQTTDemoActivity" />
         <activity
             android:name=".activity.SuspensionActivity"
             android:launchMode="singleTask"
