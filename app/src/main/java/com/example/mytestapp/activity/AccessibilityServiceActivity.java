@@ -1,12 +1,20 @@
 package com.example.mytestapp.activity;
 
+import android.util.Log;
+import android.view.View;
+import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Toast;
 
 import com.example.mytestapp.entity.BaseItemEntity;
 import com.example.mytestapp.service.GreenAccessibilityService;
+import com.example.mytestapp.utils.AccessibilityLogUtils;
 import com.example.mytestapp.utils.PermissionUtils;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import io.reactivex.Flowable;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * @author hujie
@@ -21,7 +29,7 @@ public class AccessibilityServiceActivity  extends BaseListActivity{
         datas.add(new BaseItemEntity("点击截屏", "1"));
         datas.add(new BaseItemEntity("点击返回", "2"));
         datas.add(new BaseItemEntity("点击Home", "3"));
-        datas.add(new BaseItemEntity("点击Recents", "4"));
+        datas.add(new BaseItemEntity("点击开始轮询打印页面元素", "4"));
     }
 
     @Override
@@ -51,11 +59,25 @@ public class AccessibilityServiceActivity  extends BaseListActivity{
                 break;
             case 4:
                 if (isNext()) {
-                    GreenAccessibilityService.getInstance().toggleRecents();
+                    createTimer(5000).subscribe(times -> {
+                        GreenAccessibilityService instance = GreenAccessibilityService.getInstance();
+                        Log.d(TAG, "instance = " + instance) ;
+                        if (instance != null && instance.getRootInActiveWindow() != null) {
+                            AccessibilityNodeInfo rootInActiveWindow = instance.getRootInActiveWindow();
+                            AccessibilityLogUtils.dfsnode(rootInActiveWindow, 1);
+                        }
+                    });
                 }
                 break;
 
         }
+    }
+
+    private Flowable createTimer(long delay) {
+        Flowable flowable = Flowable
+                .interval(delay, 5000, TimeUnit.MILLISECONDS)
+                .subscribeOn(Schedulers.io());
+        return flowable;
     }
 
     private boolean isNext() {

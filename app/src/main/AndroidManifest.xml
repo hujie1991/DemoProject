@@ -26,12 +26,14 @@
         <activity android:name=".activity.AccessibilityServiceActivity" />
         <activity android:name=".activity.ScreenshotActivity" />
         <activity android:name=".activity.MQTTDemoActivity" />
+        <activity android:name=".activity.UiTestActivity" />
         <activity
             android:name=".activity.SuspensionActivity"
             android:launchMode="singleTask"
             android:theme="@style/DialogStyle" />
         <activity android:name=".activity.DeviceAdminActivity" />
         <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.SettingReadActivity" />
 
         <receiver
             android:name=".receiver.AutostartDetector"
@@ -58,7 +60,7 @@
         </receiver>
 
         <service
-            android:name=".service.NotificationMonitorService"
+            android:name=".service.TextExtendsNotification"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
             <intent-filter>
