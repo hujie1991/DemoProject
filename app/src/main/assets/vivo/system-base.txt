@@ -132,8 +132,8 @@ com.vivo.pushservice.other=fGsSPnl2ExG+ssoBExxLmJr67fV/J4Xz0FEz3xXBnyWe3CwhOTVT+
 3JJ68scFWi9vB8sjJi4/4G+7phOhsnAbXGw+sYh0jybH5vJDrP/tKBRyQJOxs8xiWiOq+rQRgFv19b/kFtNfEpeAe2d3l+vR3wfsPYGT2Hi+JQPZiSwXzYfCG8D7/XqHDcgvvIuz0drYTx2vmIl3GUc9NHS7l6vrlZulQrtswu3Fl6deuUwyEx0QAKl5Ap1cG3NubSp+xlYGl42WWwFYTPk31Ujvcr8uEMfEH4ozLeST3Pu9q3DzmxWn/omX0eqKpwdK9XW2U
 Epwv5UZ9egX6k6IGQrHtd+PAG7TesKXeUhvXR2ITIbUXhMS9JP9nPaxCIKKALepTGab4NwFytBZxqumf1Y1fXgkVJFRgbgcT45NTPG/0h/V4WvxJ7OVg=
 com.vivo.pushservice.sdk=
-com.vivo.smartmultiwindow.activesplit=1
-com.vivo.smartmultiwindow.audosplit=1
+com.vivo.smartmultiwindow.activesplit=0
+com.vivo.smartmultiwindow.audosplit=0
 com.vivo.smartmultiwindow.can.active.splitscreen=0
 com.vivo.smartmultiwindow.whitelist.switch=on
 com_bbk_VoiceAssistant_motion_start=0
