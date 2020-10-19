@@ -75,7 +75,7 @@ public class UsageStatsActivity extends BaseActivity {
                 case UsageEvents.Event.MOVE_TO_BACKGROUND:
                     item = simpleDateFormat.format(date) + " : " + eventOut.getEventType() + " , " + eventOut.getPackageName() + "/" + eventOut.getClassName() + "\n";
                     builder.append(item);
-                    Log.d(TAG, item);
+//                    Log.d(TAG, item);
                     break;
                 case UsageEvents.Event.SCREEN_INTERACTIVE:
                 case UsageEvents.Event.SCREEN_NON_INTERACTIVE:
@@ -83,7 +83,7 @@ public class UsageStatsActivity extends BaseActivity {
                 case UsageEvents.Event.KEYGUARD_HIDDEN:
                     item = simpleDateFormat.format(date) + " : " + eventOut.getEventType() + "\n";
                     builder.append(item);
-                    Log.d(TAG, item);
+//                    Log.d(TAG, item);
                     break;
                 default:
                     continue;
