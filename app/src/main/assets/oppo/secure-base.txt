@@ -1,22 +1,23 @@
 ColorNotificationInitPolicy=1
 Setting_AodEnable=0
+access_control_lock_enabled=1
+access_control_lock_mode=1
 accessibility_display_inversion_enabled=null
 accessibility_display_magnification_enabled=0
 accessibility_display_magnification_scale=2.0
 accessibility_enabled=1
 accessibility_shortcut_enabled=0
 accessibility_shortcut_target_service=com.google.android.marvin.talkback/com.google.android.marvin.talkback.TalkBackService
-account_verify_time=285467653
+account_verify_time=318013351
 air_view_split_screen_toggle=0
-air_view_toggle=0
+air_view_toggle=1
 allow_resizeable_screen=0
-android_id=a381073f88e4d5c6
-app_auto_resolution=1
+android_id=ee68dea71af14642
 app_disable_switch=1
-apps_shortcut_menu_permission_setting_count=20
-apps_shortcut_menu_permission_settings={com.android.documentsui, 1, 0, 0/com.heytap.market, 1, 0, 0/com.android.contacts, 1, 0, 0/com.baidu.searchbox, 1, 0, 0/com.android.mms, 1, 0, 0/com.oppo.community, 1, 0, 0/com.xunmeng.pinduoduo, 1, 0, 0/com.nearme.gamecenter,
- 1, 0, 0/com.coloros.note, 1, 0, 0/cn.trinea.android.developertools, 1, 0, 0/com.oppo.camera, 1, 0, 0/com.coloros.calendar, 1, 0, 0/com.coloros.phonemanager, 1, 0, 0/com.android.settings, 1, 0, 0/com.heytap.browser, 1, 0, 0/com.oppo.store, 1, 0, 0/com.smile.gifmake
-r, 1, 0, 0/com.heytap.themestore, 1, 0, 0/com.coloros.gallery3d, 1, 0, 0/com.achievo.vipshop, 1, 0, 0}
+apps_shortcut_menu_permission_setting_count=22
+apps_shortcut_menu_permission_settings={com.android.documentsui, 1, 0, 0/com.heytap.market, 1, 0, 0/com.android.contacts, 1, 0, 0/com.android.mms, 1, 0, 0/com.oppo.community, 1, 0, 0/com.xunmeng.pinduoduo, 1, 0, 0/com.nearme.gamecenter, 1, 0, 0/com.coloros.note, 1,
+ 0, 0/cn.trinea.android.developertools, 1, 0, 0/com.oppo.camera, 1, 0, 0/com.coloros.calendar, 1, 0, 0/com.coloros.alarmclock, 1, 0, 0/com.baidu.BaiduMap, 1, 0, 0/com.coloros.phonemanager, 1, 0, 0/com.android.settings, 1, 0, 0/com.heytap.browser, 1, 0, 0/com.oppo.s
+tore, 1, 0, 0/com.smile.gifmaker, 1, 0, 0/com.heytap.themestore, 1, 0, 0/com.coloros.gallery3d, 1, 0, 0/com.eg.android.AlipayGphone, 1, 0, 0/com.achievo.vipshop, 1, 0, 0}
 assistant=
 auto_frozen_time=10080
 auto_switch=1
@@ -26,8 +27,8 @@ aware_lock_enabled=0
 backup_enabled=0
 backup_transport=com.google.android.gms/.backup.BackupTransportService
 bluetooth_addr_valid=1
-bluetooth_address=94:54:CE:64:DD:EA
-bluetooth_name=OPPO A72 5G
+bluetooth_address=94:54:CE:96:70:38
+bluetooth_name=OPPO A32
 changeover_status=0
 charging_sounds_enabled=1
 charging_vibration_enabled=1
@@ -37,7 +38,13 @@ coloros_fingerprint_file_encryption_switch=0
 coloros_fingerprint_security_vertify_switch=0
 coloros_fingerprint_unlock_switch=0
 coloros_screen_refresh_rate=0
-default_input_method=com.iflytek.inputmethod.oppo/.FlyIME
+com.baidu.BaiduMap=1
+com.hey.airviewdemo=1
+com.sdu.didi.psnger=3
+com.tencent.tmgp.pubgmhd=1
+com.tencent.tmgp.sgame=1
+default_input_method=com.sohu.inputmethod.sogouoem/.SogouIME
+disable_assistant_screen=1
 display_auto_hide_virtual_key_toast_times=5
 display_gloableHBM_settings=1
 double_finger_split_screen_enable=1
@@ -48,13 +55,13 @@ edge_panel_toggle=0
 enable_dual_clock_clock_widget_switch=1
 enable_dual_clock_screen_clock_switch=1
 enable_dual_clock_switch=1
-enabled_accessibility_services=com.gwchina.lssw.child/com.gwchina.sdk.api.core.GreenAccessibilityService:cn.trinea.android.developertools/b.c.a
-enabled_input_methods=com.sohu.inputmethod.sogouoem/.SogouIME:com.iflytek.inputmethod.oppo/.FlyIME
+enabled_accessibility_services=com.gwchina.lssw.child/com.gwchina.sdk.api.core.GreenAccessibilityService
+enabled_input_methods=com.sohu.inputmethod.sogouoem/.SogouIME
 enabled_notification_assistant=android.ext.services/android.ext.services.notification.Assistant
 enabled_notification_listeners=com.gwchina.lssw.child/com.gwchina.sdk.base.notification.MyNotificationListenerService
 enabled_notification_policy_access_packages=com.google.android.apps.wellbeing
 face_unlock_dismisses_keyguard=null
-findmyphone_sms_service_number=1069003202234,1069033322338,1069040677151
+findmyphone_sms_service_number=1069033322338,1069032922338
 fingerprint_for_privacy=
 flashlight_available=1
 flashlight_enabled=0
@@ -66,26 +73,27 @@ gesture_mistouch_prevention_side_enable=1
 gesture_mistouch_switch_app_enable=0
 gesture_side_hide_bar_prevention_enable=0
 google_restric_info=1
+hide_game_icon_mode_flag=0
 hide_gesture_bar_enable=0
 hide_navigationbar_enable=0
 high_priority=null
 hush_gesture_used=0
 icon_blacklist=null
 immersive_mode_confirmations=confirmed
-input_methods_subtype_history=com.iflytek.inputmethod.oppo/.FlyIME;113646356
+input_methods_subtype_history=com.sohu.inputmethod.sogouoem/.SogouIME;113646356
 install_non_market_apps=1
 is_silent_reboot=0
-keyguard_notification_visibility=1
 keyguard_slice_uri=null
-launcher_shortcut_permission_setting_count=29
-launcher_shortcut_permission_settings={com.coloros.onekeylockscreen, 0, 0, 0/com.nearme.play, 0, 0, 0/com.heytap.health, 0, 0, 0/com.heytap.reader, 0, 0, 0/com.coloros.familyguard, 0, 0, 0/com.coloros.shortcuts, 0, 0, 0/com.oppo.community, 0, 0, 0/com.redteamobile.
-roaming, 0, 0, 0/com.xunmeng.pinduoduo, 0, 0, 0/com.coloros.weather2, 0, 0, 0/com.coloros.compass2, 0, 0, 0/com.nearme.gamecenter, 0, 0, 0/com.coloros.note, 0, 0, 0/cn.trinea.android.developertools, 0, 0, 0/com.coloros.calculator, 0, 0, 0/com.coloros.gamespaceui, 0
-, 0, 0/com.tencent.news, 0, 0, 0/com.oppo.store, 0, 0, 0/com.gwchina.lssw.parent, 0, 0, 0/com.coloros.soundrecorder, 0, 0, 0/com.android.email, 0, 0, 0/com.sina.weibo, 0, 0, 0/com.gwchina.lssw.child, 0, 0, 0/com.taobao.taobao, 0, 0, 0/com.heytap.yoli, 0, 0, 0/com.c
-oloros.videoeditor, 0, 0, 0/com.eg.android.AlipayGphone, 0, 0, 0/com.heytap.smarthome, 0, 0, 0/com.achievo.vipshop, 0, 0, 0}
+launcher_shortcut_permission_setting_count=32
+launcher_shortcut_permission_settings={com.coloros.onekeylockscreen, 0, 0, 0/com.unionpay.tsmservice, 0, 0, 0/com.browser.txtw, 0, 0, 0/com.nearme.play, 0, 0, 0/com.heytap.health, 0, 0, 0/com.gwchina.lssw.gelei.plug, 0, 0, 0/com.coloros.familyguard, 0, 0, 0/com.col
+oros.shortcuts, 0, 0, 0/com.oppo.community, 0, 0, 0/com.redteamobile.roaming, 0, 0, 0/com.xunmeng.pinduoduo, 0, 0, 0/com.coloros.weather2, 0, 0, 0/com.coloros.compass2, 0, 0, 0/com.nearme.gamecenter, 0, 0, 0/com.coloros.note, 0, 0, 0/cn.trinea.android.developertool
+s, 0, 0, 0/com.coloros.calculator, 0, 0, 0/com.coloros.operationtips, 0, 0, 0/com.coloros.gamespaceui, 0, 0, 0/com.oppo.store, 0, 0, 0/com.gwchina.lssw.parent, 0, 0, 0/com.coloros.soundrecorder, 0, 0, 0/com.android.email, 0, 0, 0/com.sina.weibo, 0, 0, 0/com.gwchina
+.lssw.child, 0, 0, 0/com.taobao.taobao, 0, 0, 0/com.heytap.book, 0, 0, 0/com.heytap.yoli, 0, 0, 0/com.coloros.videoeditor, 0, 0, 0/com.eg.android.AlipayGphone, 0, 0, 0/com.heytap.smarthome, 0, 0, 0/com.achievo.vipshop, 0, 0, 0}
 launcher_slid_slip_enable_state=1
 launcher_state=0
 launcher_text_appearance=-1/true
 launcher_text_color=0
+location_changer=2
 location_mode=3
 location_providers_allowed=gps,network
 lock_pattern_visible_pattern=1
@@ -100,7 +108,7 @@ low_power_manual_activation_count=1
 low_power_warning_acknowledged=1
 manual_hide_navigationbar=0
 manual_ringer_toggle_count=1
-mms_restore_account_name=null
+media_button_receiver=
 mock_location=0
 mount_play_not_snd=1
 mount_ums_autostart=0
@@ -108,30 +116,29 @@ mount_ums_notify_enabled=1
 mount_ums_prompt=1
 multi_press_timeout=300
 nav_bar_hide_enable=0
-nav_bar_immersive=0
 navigation_mode=0
 no_frozen=com.coloros.video,com.oppo.book,com.oppo.reader,com.nearme.gamecenter,com.oppo.community,com.coloros.weather,com.coloros.weather2,com.android.calculator2,com.coloros.calculator,com.coloros.compass,com.coloros.compass2,com.nearme.note,com.coloros.note,com.
 coloros.onekeylockscreen,com.redteamobile.roaming,com.coloros.flashnote,com.coloros.favorite,com.coloros.colorfilestand,com.google.android.wearable.app.cn,com.coloros.securityguard,com.oneplus.market,com.coloros.lives,com.oppo.news,com.coloros.digitalwellbeing,com.
 coloros.familyguard,com.facebook.orca,com.imo.android.imoim,org.telegram.messenger,com.zing.zalo,com.facebook.katana,com.facebook.mlite,com.google.android.apps.tachyon,com.google.android.talk,com.coloros.yoli,com.heytap.reader,com.heytap.book,com.heytap.yoli,com.op
 po.ohome,com.heytap.smarthome,com.coloros.gamespaceui,com.nearme.play,com.coloros.shortcuts,com.xunmeng.pinduoduo,com.coloros.soundrecorder,com.kuaidi.daijia.driver,com.sdu.didi.gsui,com.duoduo.vip.taxi,com.ubercab.driver,net.zdsoft.taxiclient2,cn.edaijia.android.d
 riverclient,com.yongche,com.funcity.taxi.driver,com.hn.client.driver,com.joyskim.taxis_driver,com.anyimob.taxi,com.eastedge.taxidriverforpad,com.xunmeng.merchant,com.sdu.didi.gui,com.sankuai.meituan.dispatch.homebrew,com.lalamove.huolala.driver,com.sankuai.meituan.
-meituanwaimaibusiness,me.ele.napos,com.sankuai.meituan.merchant,com.xtc.watch,com.cxyw.suyun.ui,com.sankuai.meituan.dispatch.crowdsource,com.coloros.sharescreen,com.achievo.vipshop,com.oplus.cupid,com.taobao.taobao,
+meituanwaimaibusiness,me.ele.napos,com.sankuai.meituan.merchant,com.xtc.watch,com.cxyw.suyun.ui,com.sankuai.meituan.dispatch.crowdsource,com.coloros.sharescreen,com.achievo.vipshop,com.oplus.cupid,com.taobao.taobao,com.coloros.videoeditor,
 notification_badging=1
-notification_bubbles=0
+notification_bubbles=1
 notification_dismiss_rtl=null
 operator_service_improve_plan=1
-oppo_color_mode=0
+oplus.wifi.wifi_custom_config_store_xml_version=2020062100
 oppo_common_center_incallui_floating_window_state=0
 oppo_default_input_method=com.sohu.inputmethod.sogouoem/.SogouIME
-oppo_device_name=OPPO A72 5G
+oppo_device_name=OPPO A32
 oppo_gesture_double_touch=0
 oppo_gesture_open_type=0
 oppo_gesture_wake_up_arouse=0
 panel_bar_expandable=0
 permission_entrance_disable=1
-photos_restore_account_name=null
-power_key_up_time=402920
+power_key_up_time=372758674
 privacy_protect_auto_config_switch=0
+privacy_quesion_type_choose=0
 qs_show_brightness=null
 reminder_exp_learned_hint_last_shown=0
 reminder_exp_learning_event_count=0
@@ -146,8 +153,9 @@ selected_input_method_subtype=-1
 selected_spell_checker=
 selected_spell_checker_subtype=0
 settings_gesture_keys_mode=2
-settings_install_authentication_frequency=1
+settings_install_authentication_frequency=0
 settings_navigation_bar_combination=0
+show_gamespace_edge_panel=1
 show_ime_with_hard_keyboard=0
 show_navigation_gestures_guide=0
 show_notification_snooze=1
@@ -161,26 +169,28 @@ smart_notification_config=0
 smart_notification_enable=0
 snoozed_schedule_condition_provider=
 speak_password=1
+speech_assist_power_wakeup=0
 super_power_notification_whitelist={"com.android.calendar":true,"com.coloros.calendar":true,"com.coloros.note":true,"com.coloros.alarmclock":true,"com.coloros.favorite":true,"com.android.bluetooth":true,"com.coloros.oshare":true,"com.android.mms":true,"com.android.
 contacts":true,"com.coloros.securitypermission":true,"com.coloros.oppoguardelf":true,"com.android.incallui":true,"com.coloros.blacklistapp":true,"com.oppo.sos":true,"com.android.phone":true,"com.coloros.providers.downloads.ui":true,"com.oppo.ota":true,"com.coloros.
 safecenter":true,"com.coloros.securepay":true,"com.android.systemui":true,"com.google.android.dialer":true,"com.google.android.calendar":true,"com.google.android.apps.messaging":true,"com.google.android.keep":true}
 sync_parent_sounds=0
-sys_force_60Hz=0
 sysui_do_not_disturb=null
 sysui_keyguard_left=null
 sysui_keyguard_right=null
 sysui_qqs_count=null
 sysui_qs_fancy_anim=null
 sysui_qs_move_whole_rows=null
-sysui_qs_tiles=wifi,cell,ringermode,bt,flashlight,custom(com.android.settings/com.coloros.settings.scenemode.SceneTileService),airplane,location,rotation,custom(com.coloros.screenrecorder/.services.QuickPanelService),custom(com.android.settings/com.coloros.settings
-.feature.display.video.OsieTileService),custom(com.color.eyeprotect/com.color.darkmode.tile.DarkModeTileService),custom(com.color.eyeprotect/.services.ColorEyeProtectTileService),clear,battery,hotspot,custom(com.coloros.oshare/.OshareTileService),custom(com.heytap.
-speechassist/.service.SpeechTileService),dnd,custom(com.coloros.floatassistant/.FloatAssistantTileService),calculator,switchdata,superpowersave
+sysui_qs_tiles=wifi,cell,ringermode,bt,flashlight,custom(com.android.settings/com.coloros.settings.scenemode.SceneTileService),airplane,location,rotation,custom(com.coloros.screenrecorder/.services.QuickPanelService),custom(com.color.eyeprotect/com.color.darkmode.t
+ile.DarkModeTileService),custom(com.color.eyeprotect/.services.ColorEyeProtectTileService),clear,battery,hotspot,custom(com.coloros.oshare/.OshareTileService),custom(com.heytap.speechassist/.service.SpeechTileService),dnd,custom(com.coloros.floatassistant/.FloatAss
+istantTileService),calculator,switchdata
+sysui_rounded_size=null
 sysui_tuner_version=4
 sysui_volume_down_silent=null
 sysui_volume_up_silent=null
 touch_exploration_enabled=0
+touch_exploration_granted_accessibility_services=null
 trust_agents_initialized=1
-ui_night_mode=1
+ui_night_mode_override=1
 unknown_sources_default_reversed=1
 up_gesture_enter_landscape_tips_num=3
 user_setup_complete=1
@@ -189,6 +199,7 @@ voice_recognition_service=
 volume_hush_gesture=1
 wake_gesture_enabled=0
 wfd_auto_connect_on=1
+wifi_disconnect_delay_duration=2
 zen_duration=0
 zen_settings_suggestion_viewed=0
 zen_settings_updated=1
