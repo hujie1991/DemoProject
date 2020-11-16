@@ -2,7 +2,7 @@
 /*加载配置信息*/
 ext {
     //加载版本信息
-    MinSdkVersion = 24
+    MinSdkVersion = 23
     TargetSdkVersion = 28
     CompileSdkVersion = 28
 

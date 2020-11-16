@@ -2,7 +2,6 @@ package com.example.mytestapp.service;
 
 import android.accessibilityservice.AccessibilityService;
 import android.os.Handler;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
@@ -52,14 +51,14 @@ public class GreenAccessibilityService extends AccessibilityService {
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
         if (event != null) {
-            Log.d(TAG, "event.getType = " + event.getEventTime() + ", event = " + event);
-            CharSequence packageName = event.getPackageName();
-            CharSequence className = event.getClassName();
-            if (!TextUtils.isEmpty(packageName) && packageName.toString().equals("com.android.systemui")
-                && !TextUtils.isEmpty(className) && className.toString().equals("com.android.systemui.media.MediaProjectionPermissionActivity")) {
-                Log.d(TAG, "onAccessibilityEvent equals");
-                mHandler.postDelayed(runnable, 50);
-            }
+//            Log.d(TAG, "event.getType = " + event.getEventTime() + ", event = " + event);
+//            CharSequence packageName = event.getPackageName();
+//            CharSequence className = event.getClassName();
+//            if (!TextUtils.isEmpty(packageName) && packageName.toString().equals("com.android.systemui")
+//                && !TextUtils.isEmpty(className) && className.toString().equals("com.android.systemui.media.MediaProjectionPermissionActivity")) {
+//                Log.d(TAG, "onAccessibilityEvent equals");
+//                mHandler.postDelayed(runnable, 50);
+//            }
         }
     }
 
