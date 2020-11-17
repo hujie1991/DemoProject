@@ -32,33 +32,10 @@ public class GreenAccessibilityService extends AccessibilityService {
         super.onCreate();
     }
 
-    Handler mHandler = new Handler();
-
-    final Runnable runnable = () -> {
-        AccessibilityNodeInfo rootInActiveWindow = getRootInActiveWindow();
-        Log.d(TAG, "rootInActiveWindow = " + rootInActiveWindow);
-        if (rootInActiveWindow == null) {
-            mHandler.postDelayed((Runnable) this, 50);
-        } else {
-            AccessibilityLogUtils.dfsnode(rootInActiveWindow, 0);
-            List<AccessibilityNodeInfo> noTip = NodeUtil.findByText(rootInActiveWindow, "不再显示", "android.widget.CheckBox");
-            if (noTip != null && !noTip.isEmpty()) {
-                NodeUtil.clickNodeOrParent(noTip.get(0));
-            }
-        }
-    };
-
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
-        if (event != null) {
-//            Log.d(TAG, "event.getType = " + event.getEventTime() + ", event = " + event);
-//            CharSequence packageName = event.getPackageName();
-//            CharSequence className = event.getClassName();
-//            if (!TextUtils.isEmpty(packageName) && packageName.toString().equals("com.android.systemui")
-//                && !TextUtils.isEmpty(className) && className.toString().equals("com.android.systemui.media.MediaProjectionPermissionActivity")) {
-//                Log.d(TAG, "onAccessibilityEvent equals");
-//                mHandler.postDelayed(runnable, 50);
-//            }
+        if (event != null && event.getPackageName() != null && event.getClassName() != null) {
+            AccessibilityManager.getInstance().onAccessibilityEvent(event);
         }
     }
 

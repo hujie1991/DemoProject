@@ -1,20 +1,13 @@
 package com.example.mytestapp.activity;
 
-import android.util.Log;
-import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Toast;
 
 import com.example.mytestapp.entity.BaseItemEntity;
+import com.example.mytestapp.service.AccessibilityManager;
 import com.example.mytestapp.service.GreenAccessibilityService;
-import com.example.mytestapp.utils.NodeUtil;
 import com.example.mytestapp.utils.PermissionUtils;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-
-import io.reactivex.Flowable;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
 
 /**
  * @author hujie
@@ -23,91 +16,35 @@ import io.reactivex.schedulers.Schedulers;
  */
 public class AccessibilityServiceActivity extends BaseListActivity {
 
-    Disposable subscribe;
-
     @Override
     public void initData(List<BaseItemEntity> datas) {
         datas.add(new BaseItemEntity("开启无障碍服务", "0"));
-        datas.add(new BaseItemEntity("点击截屏", "1"));
-        datas.add(new BaseItemEntity("点击返回", "2"));
-        datas.add(new BaseItemEntity("暂停轮询", "3"));
-        datas.add(new BaseItemEntity("点击开始轮询打印页面元素", "4"));
+        datas.add(new BaseItemEntity("点击开始轮询打印页面元素", "1"));
+        datas.add(new BaseItemEntity("暂停轮询", "2"));
     }
 
     @Override
     public void onClickItem(int position, String value) {
-        switch (position) {
-            case 0:
+        switch (value) {
+            case "0":
                 if (PermissionUtils.isAccessibilitySettingsOn(this)) {
                     Toast.makeText(this, "无障碍服务权限已开启", Toast.LENGTH_SHORT).show();
                 } else {
                     PermissionUtils.startAccessibility(this);
                 }
                 break;
-            case 1:
+            case "1":
                 if (isNext()) {
-                    GreenAccessibilityService.getInstance().screenshot();
+                    AccessibilityManager.getInstance().startPolling();
                 }
                 break;
-            case 2:
-                if (isNext()) {
-                    GreenAccessibilityService.getInstance().back();
-                }
+            case "2":
+                AccessibilityManager.getInstance().stopPolling();
                 break;
-            case 3:
-                dsfsd();
-                break;
-            case 4:
-                if (isNext()) {
-                    subscribe = createTimer(1000).subscribe(times -> {
-                        GreenAccessibilityService instance = GreenAccessibilityService.getInstance();
-                        if (instance != null && instance.getRootInActiveWindow() != null) {
-                            AccessibilityNodeInfo rootInActiveWindow = instance.getRootInActiveWindow();
-//                            AccessibilityLogUtils.dfsnode(rootInActiveWindow, 0);
-                            CharSequence className = rootInActiveWindow.getClassName();
-                            Log.d(TAG,"instance = " + instance);
-                            if (rootInActiveWindow.getPackageName().equals("com.jingdong.app.mall")) {
-                                List<AccessibilityNodeInfo> noTip = NodeUtil.findByText(rootInActiveWindow, "立即购买", "android.widget.TextView");
-                                if (noTip != null && noTip.size() > 0) {
-                                    boolean b = NodeUtil.clickNodeOrParent(noTip.get(0));
-                                    Log.d(TAG, "立即购买 点击结果 = " + b);
-                                }
-                                noTip = NodeUtil.findByText(rootInActiveWindow, "确定", "android.widget.TextView");
-                                if (noTip != null && noTip.size() > 0) {
-                                    boolean b = NodeUtil.clickNodeOrParent(noTip.get(0));
-                                    Log.d(TAG, "确定 点击结果 = " + b);
-                                }
-                                noTip = NodeUtil.findByText(rootInActiveWindow, "提交订单", "android.widget.Button");
-                                if (noTip != null && noTip.size() > 0) {
-                                    boolean b = NodeUtil.clickNodeOrParent(noTip.get(0));
-                                    Log.d(TAG, "提交订单 点击结果 = " + b);
-                                    if (b) {
-                                        dsfsd();
-                                    }
-                                }
-                            }
-                        }
-                    });
-                }
-                break;
-
         }
     }
 
 
-    private void dsfsd() {
-        if (subscribe != null && !subscribe.isDisposed()) {
-            subscribe.dispose();
-        }
-    }
-
-
-    private Flowable createTimer(long delay) {
-        Flowable flowable = Flowable
-                .interval(delay, 5000, TimeUnit.MILLISECONDS)
-                .subscribeOn(Schedulers.io());
-        return flowable;
-    }
 
     private boolean isNext() {
         if (PermissionUtils.isAccessibilitySettingsOn(this) && GreenAccessibilityService.getInstance() != null) {

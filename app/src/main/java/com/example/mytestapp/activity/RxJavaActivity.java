@@ -1,8 +1,11 @@
 package com.example.mytestapp.activity;
 
+import android.os.Build;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.mytestapp.entity.BaseItemEntity;
+import com.example.mytestapp.utils.DeviceTypeUtil;
 
 import java.util.List;
 
@@ -42,11 +45,16 @@ public class RxJavaActivity extends BaseListActivity {
                 break;
 
             case 4:
-                break;
-
-            case 5:
+                String s = buildGuideFileName().toString();
+                Toast.makeText(this, s, Toast.LENGTH_LONG).show();
                 break;
         }
+    }
+
+    public StringBuffer buildGuideFileName() {
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append(Build.MANUFACTURER).append("_").append(Build.VERSION.SDK_INT).append("_").append(DeviceTypeUtil.getCustomOsVersion());
+        return stringBuffer;
     }
 
     private void onClick0() {

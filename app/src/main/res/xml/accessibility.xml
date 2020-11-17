@@ -1,8 +1,12 @@
 <accessibility-service xmlns:android='http://schemas.android.com/apk/res/android'
-    android:accessibilityEventTypes='typeAllMask'
+    android:accessibilityEventTypes='typeWindowStateChanged'
     android:accessibilityFeedbackType='feedbackGeneric'
-    android:accessibilityFlags="flagDefault|flagRetrieveInteractiveWindows"
+    android:accessibilityFlags="flagDefault|flagRetrieveInteractiveWindows|flagReportViewIds"
     android:canRetrieveWindowContent='true'
     android:canRequestFilterKeyEvents ="false"
     android:description='@string/app_name'
-    android:notificationTimeout='100' />
+    android:notificationTimeout='100'
+    android:packageNames="com.jingdong.app.mall,com.netease.yanxuan"/>
+
+<!--android:accessibilityEventTypes='typeAllMask|typeViewClicked|typeViewFocused|typeWindowStateChanged|typeWindowContentChanged'-->
+<!--android:packageNames="com.jingdong.app.mall,com.netease.yanxuan" 需要监听的app包名，不配之默认全部监听-->

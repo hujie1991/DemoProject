@@ -22,11 +22,11 @@ public class HomeActivity extends BaseListActivity {
         datas.add(new BaseItemEntity("读取应用使用记录", "UsageStatsActivity"));
         datas.add(new BaseItemEntity("权限设置", "MainActivity"));
         datas.add(new BaseItemEntity("RxJava", "RxJavaActivity"));
-        datas.add(new BaseItemEntity("java8新特性", "Java8NewActivity"));
         datas.add(new BaseItemEntity("无障碍辅助功能", "AccessibilityServiceActivity"));
-        datas.add(new BaseItemEntity("截屏", "ScreenshotActivity"));
-        datas.add(new BaseItemEntity("ui测试页面", "UiTestActivity"));
-        datas.add(new BaseItemEntity("Setting数据读取", "SettingReadActivity"));
+//        datas.add(new BaseItemEntity("java8新特性", "Java8NewActivity"));
+//        datas.add(new BaseItemEntity("截屏", "ScreenshotActivity"));
+//        datas.add(new BaseItemEntity("ui测试页面", "UiTestActivity"));
+//        datas.add(new BaseItemEntity("Setting数据读取", "SettingReadActivity"));
 //        datas.add(new BaseItemEntity("MQTT", "MQTTDemoActivity"));
 //        datas.add(new BaseItemEntity("悬浮窗Activity", "SuspensionActivity"));
 //        datas.add(new BaseItemEntity("设备管理器Activity", "DeviceAdminActivity"));
