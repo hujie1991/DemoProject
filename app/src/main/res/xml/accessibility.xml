@@ -6,7 +6,7 @@
     android:canRequestFilterKeyEvents ="false"
     android:description='@string/app_name'
     android:notificationTimeout='100'
-    android:packageNames="com.jingdong.app.mall,com.netease.yanxuan"/>
+    android:packageNames="com.jingdong.app.mall,com.netease.yanxuan,com.tmall.wireless"/>
 
 <!--android:accessibilityEventTypes='typeAllMask|typeViewClicked|typeViewFocused|typeWindowStateChanged|typeWindowContentChanged'-->
 <!--android:packageNames="com.jingdong.app.mall,com.netease.yanxuan" 需要监听的app包名，不配之默认全部监听-->

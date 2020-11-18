@@ -69,7 +69,7 @@ public class AccessibilityServiceActivity extends BaseListActivity {
         public void onReceive(Context context, Intent intent) {
             SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
             String format = sdf.format(new Date());
-            if ("10:00".equals(format)) {
+            if ("10:00".equals(format) || "22:00".equals(format) || "20:00".equals(format)) {
                 Log.d(TAG, "format = " + format);
                 AccessibilityManager.getInstance().startRun();
             }

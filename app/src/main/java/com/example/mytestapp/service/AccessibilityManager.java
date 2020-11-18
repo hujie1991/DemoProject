@@ -4,12 +4,13 @@ import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 
-import com.example.mytestapp.utils.NodeUtil;
+import com.example.mytestapp.qianggou.JingDongQiangGou;
+import com.example.mytestapp.qianggou.TianMaoQiangGou;
+import com.example.mytestapp.qianggou.YanXuanQiangGou;
 
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Flowable;
-import io.reactivex.Observable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
@@ -23,11 +24,12 @@ public class AccessibilityManager {
     private final String TAG = "AccessibilityManager";
     private final String JONG_DONG_PACKAGE = "com.jingdong.app.mall";
     private final String YAN_XUAN_PACKAGE = "com.netease.yanxuan";
+    private final String TIAM_MAO_PACKAGE = "com.tmall.wireless";
 
     private Disposable subscribe;
-    private Disposable backDisposable;
 
-    private AccessibilityManager() {}
+    private AccessibilityManager() {
+    }
 
     private final static AccessibilityManager mInstance = new AccessibilityManager();
 
@@ -40,9 +42,11 @@ public class AccessibilityManager {
         String packageName = event.getPackageName().toString();
         String className = event.getClassName().toString();
         if (packageName.equals(JONG_DONG_PACKAGE)) {
-            jingDongEvent(className);
+            JingDongQiangGou.event(className);
         } else if (packageName.equals(YAN_XUAN_PACKAGE)) {
-            yanXuanEvent(className);
+            YanXuanQiangGou.event(className);
+        } else if (packageName.equals(TIAM_MAO_PACKAGE)) {
+            TianMaoQiangGou.event(className);
         }
         Log.d(TAG, "packageName = " + packageName + " , className = " + className);
     }
@@ -64,9 +68,11 @@ public class AccessibilityManager {
             }
             CharSequence packageName = rootInActiveWindow.getPackageName();
             if (JONG_DONG_PACKAGE.contentEquals(packageName)) {
-                jingDongPolling(rootInActiveWindow);
+                JingDongQiangGou.qiangGou(rootInActiveWindow);
             } else if (YAN_XUAN_PACKAGE.contentEquals(packageName)) {
-                yanxuanPolling(rootInActiveWindow);
+                YanXuanQiangGou.qiangGou(rootInActiveWindow);
+            } else if (TIAM_MAO_PACKAGE.contentEquals(packageName)) {
+                TianMaoQiangGou.qiangGou(rootInActiveWindow);
             }
         }
     }
@@ -87,91 +93,4 @@ public class AccessibilityManager {
                 .observeOn(Schedulers.io())
                 .subscribeOn(Schedulers.io());
     }
-
-    private void jingDongPolling(AccessibilityNodeInfo rootNodeInfo) {
-        AccessibilityNodeInfo qiangGou = NodeUtil.findById(rootNodeInfo, "com.jd.lib.productdetail.feature:id/add_2_car");
-        if (qiangGou == null) {
-            qiangGou = NodeUtil.findById(rootNodeInfo, "com.jd.lib.productdetail.feature:id/lib_pd_yuyueinfo_status");
-        }
-        if (qiangGou != null && !"立即抢购".equals(qiangGou.getText().toString())) {
-            return;
-        }
-
-        //判断按钮状态
-        if (qiangGou != null) {
-            boolean b = NodeUtil.clickNodeOrParent(qiangGou);
-            if (b) {
-                Log.d(TAG, "立即抢购");
-                return;
-            }
-        }
-
-        AccessibilityNodeInfo order = NodeUtil.findByText(rootNodeInfo, "提交订单","android.widget.Button");
-        if (order != null) {
-            NodeUtil.clickNodeOrParent(order);
-            Log.d(TAG, "提交了订单");
-            delayBack();
-        }
-    }
-
-    private void yanxuanPolling(AccessibilityNodeInfo rootNodeInfo) {
-        AccessibilityNodeInfo qiangGou = NodeUtil.findById(rootNodeInfo, "com.netease.yanxuan:id/moutai_promotion_button");
-        if (qiangGou != null && qiangGou.getText().toString().equals("今天10:00开始抢购")) {
-            return;
-        }
-
-        if (qiangGou != null) {
-            boolean b = NodeUtil.clickNodeOrParent(qiangGou);
-            if (b) {
-                Log.d(TAG, "开始抢购");
-                return;
-            }
-        }
-
-        AccessibilityNodeInfo order = NodeUtil.findById(rootNodeInfo, "com.netease.yanxuan:id/order_btn");
-        if (order != null) {
-            NodeUtil.clickNodeOrParent(order);
-            Log.d(TAG, "提交了订单");
-        }
-    }
-
-    private void jingDongEvent(String className) {
-        if ("com.jingdong.app.mall.WebActivity".equals(className)) {
-            GreenAccessibilityService.getInstance().back();
-        }
-    }
-
-    private void yanXuanEvent(String className) {
-
-    }
-
-    private void delayBack() {
-        if (backDisposable != null && !backDisposable.isDisposed()) {
-            return;
-        }
-        backDisposable = Observable.timer(300, TimeUnit.MILLISECONDS)
-                .subscribe(times -> {
-                    GreenAccessibilityService.getInstance().back();
-                    Log.d(TAG, "delayBack");
-                });
-    }
-
-
-    private void logId(AccessibilityNodeInfo nodeInfo, String text, String viewClassName) {
-        AccessibilityNodeInfo byText = NodeUtil.findByText(nodeInfo, text, viewClassName);
-        if (byText != null) {
-            Log.d(TAG, text + " - ViewIdResourceName = " + byText.getViewIdResourceName());
-        }
-    }
-
-    private void logText(AccessibilityNodeInfo nodeInfo, String id) {
-        AccessibilityNodeInfo idNodeInfo = NodeUtil.findById(nodeInfo, id);
-        if (idNodeInfo != null) {
-            Log.d(TAG, "text = " + idNodeInfo.getText());
-        }
-    }
-
-//        logId(rootNodeInfo, "立即抢购", "android.widget.TextView");
-//        logId(rootNodeInfo, "已预约", "android.widget.TextView");
-//        logId(rootNodeInfo, "提交订单", "android.widget.Button");
 }
