@@ -1,15 +1,8 @@
 package com.example.mytestapp.service;
 
 import android.accessibilityservice.AccessibilityService;
-import android.os.Handler;
 import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
-import android.view.accessibility.AccessibilityNodeInfo;
-
-import com.example.mytestapp.utils.AccessibilityLogUtils;
-import com.example.mytestapp.utils.NodeUtil;
-
-import java.util.List;
 
 
 /**
@@ -34,8 +27,10 @@ public class GreenAccessibilityService extends AccessibilityService {
 
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
-        if (event != null && event.getPackageName() != null && event.getClassName() != null) {
+        if (event != null && event.getPackageName() != null && event.getClassName() != null
+                && event.getEventType() == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED) {
             AccessibilityManager.getInstance().onAccessibilityEvent(event);
+            Log.d(TAG, "event = " + event);
         }
     }
 

@@ -1,12 +1,22 @@
 package com.example.mytestapp.activity;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
 
 import com.example.mytestapp.entity.BaseItemEntity;
 import com.example.mytestapp.service.AccessibilityManager;
 import com.example.mytestapp.service.GreenAccessibilityService;
 import com.example.mytestapp.utils.PermissionUtils;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -15,6 +25,15 @@ import java.util.List;
  * Date : 2020-06-15 16:42
  */
 public class AccessibilityServiceActivity extends BaseListActivity {
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Intent.ACTION_TIME_TICK);
+        registerReceiver(receiver, filter);
+    }
 
     @Override
     public void initData(List<BaseItemEntity> datas) {
@@ -44,6 +63,18 @@ public class AccessibilityServiceActivity extends BaseListActivity {
         }
     }
 
+
+    private final BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+            String format = sdf.format(new Date());
+            if ("10:00".equals(format)) {
+                Log.d(TAG, "format = " + format);
+                AccessibilityManager.getInstance().startRun();
+            }
+        }
+    };
 
 
     private boolean isNext() {

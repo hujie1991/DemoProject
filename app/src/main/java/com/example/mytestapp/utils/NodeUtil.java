@@ -28,8 +28,7 @@ public class NodeUtil {
         return infos;
     }
 
-    public static List<AccessibilityNodeInfo> findByText(AccessibilityNodeInfo nodeInfo, String text, String viewClassName) {
-        List<AccessibilityNodeInfo> result = new ArrayList<AccessibilityNodeInfo>();
+    public static AccessibilityNodeInfo findByText(AccessibilityNodeInfo nodeInfo, String text, String viewClassName) {
         List<AccessibilityNodeInfo> infos = nodeInfo.findAccessibilityNodeInfosByText(text);
         if (infos == null || infos.isEmpty()) {
             return null;
@@ -39,11 +38,11 @@ public class NodeUtil {
                 CharSequence charSequence = item.getClassName();
                 Log.d(TAG,"AccessibilityObserver text = " + text + " , charSequence = " + charSequence);
                 if (charSequence != null && viewClassName.equals(charSequence.toString())) {
-                    result.add(item);
+                    return item;
                 }
             }
         }
-        return result;
+        return null;
     }
 
     public static List<AccessibilityNodeInfo> findByViewClassName(AccessibilityNodeInfo nodeInfo, String className) {
