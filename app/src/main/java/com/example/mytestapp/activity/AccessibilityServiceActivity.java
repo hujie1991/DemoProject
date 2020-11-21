@@ -36,6 +36,12 @@ public class AccessibilityServiceActivity extends BaseListActivity {
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(receiver);
+    }
+
+    @Override
     public void initData(List<BaseItemEntity> datas) {
         datas.add(new BaseItemEntity("开启无障碍服务", "0"));
         datas.add(new BaseItemEntity("点击开始轮询打印页面元素", "1"));
@@ -54,7 +60,7 @@ public class AccessibilityServiceActivity extends BaseListActivity {
                 break;
             case "1":
                 if (isNext()) {
-                    AccessibilityManager.getInstance().startPolling();
+                    AccessibilityManager.getInstance().startPolling(5000);
                 }
                 break;
             case "2":

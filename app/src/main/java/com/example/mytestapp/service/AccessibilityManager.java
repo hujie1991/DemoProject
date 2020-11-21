@@ -51,11 +51,14 @@ public class AccessibilityManager {
         Log.d(TAG, "packageName = " + packageName + " , className = " + className);
     }
 
-    public void startPolling() {
+    public void startPolling(long dlay) {
         stopPolling();
-        subscribe = createTimer().subscribe(times -> {
+        subscribe = createTimer(dlay).subscribe(times -> {
             Log.d(TAG, "start");
             startRun();
+        }, error -> {
+            Log.d(TAG, "startPolling", error);
+            startPolling(50);
         });
     }
 
@@ -87,9 +90,9 @@ public class AccessibilityManager {
         }
     }
 
-    private Flowable<Long> createTimer() {
+    private Flowable<Long> createTimer(long dlay) {
         return Flowable
-                .interval(5000, 50, TimeUnit.MILLISECONDS)
+                .interval(dlay, 50, TimeUnit.MILLISECONDS)
                 .observeOn(Schedulers.io())
                 .subscribeOn(Schedulers.io());
     }

@@ -42,9 +42,9 @@ public class JingDongQiangGou extends BaseQiangGou{
     }
 
     public static void event(String className) {
-        if ("com.jingdong.app.mall.WebActivity".equals(className)) {
-            GreenAccessibilityService.getInstance().back();
-        }
+//        if ("com.jingdong.app.mall.WebActivity".equals(className)) {
+//            GreenAccessibilityService.getInstance().back();
+//        }
     }
 
     private static void delayBack() {
