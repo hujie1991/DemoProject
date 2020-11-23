@@ -18,6 +18,7 @@ import com.example.mytestapp.utils.PermissionUtils;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * @author hujie
@@ -73,11 +74,14 @@ public class AccessibilityServiceActivity extends BaseListActivity {
     private final BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm", Locale.ENGLISH);
             String format = sdf.format(new Date());
             if ("10:00".equals(format) || "22:00".equals(format) || "20:00".equals(format)) {
                 Log.d(TAG, "format = " + format);
                 AccessibilityManager.getInstance().startRun();
+            } else if ("09:59".equals(format) || "21:59".equals(format) || "19:59".equals(format)) {
+                AccessibilityManager.getInstance().startPolling(58000);
+                Log.d(TAG, "format = " + format);
             }
         }
     };

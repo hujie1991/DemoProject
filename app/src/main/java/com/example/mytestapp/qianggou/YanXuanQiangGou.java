@@ -25,8 +25,8 @@ public class YanXuanQiangGou extends BaseQiangGou {
 
         AccessibilityNodeInfo order = NodeUtil.findById(rootNodeInfo, "com.netease.yanxuan:id/order_btn");
         if (order != null) {
-            NodeUtil.clickNodeOrParent(order);
-            Log.d(TAG, "提交了订单");
+            boolean b = NodeUtil.clickNodeOrParent(order);
+            Log.d(TAG, "提交了订单 = " + b);
         }
     }
 
