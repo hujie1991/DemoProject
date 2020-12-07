@@ -11,7 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 import com.example.mytestapp.entity.BaseItemEntity;
-import com.example.mytestapp.service.AccessibilityManager;
+import com.example.mytestapp.qianggou.AccessibilityManager;
 import com.example.mytestapp.service.GreenAccessibilityService;
 import com.example.mytestapp.utils.PermissionUtils;
 
@@ -76,15 +76,23 @@ public class AccessibilityServiceActivity extends BaseListActivity {
         public void onReceive(Context context, Intent intent) {
             SimpleDateFormat sdf = new SimpleDateFormat("HH:mm", Locale.ENGLISH);
             String format = sdf.format(new Date());
-            if ("10:00".equals(format) || "22:00".equals(format) || "20:00".equals(format)) {
-                Log.d(TAG, "format = " + format);
-                AccessibilityManager.getInstance().startRun();
-                if ("20:00".equals(format)) {
-                    AccessibilityManager.getInstance().startPolling(50);
-                }
-            } else if ("09:59".equals(format) || "21:59".equals(format)) {
-                AccessibilityManager.getInstance().startPolling(58000);
-                Log.d(TAG, "format = " + format);
+            Log.d(TAG, "format = " + format);
+            switch (format) {
+                case "10:00":
+                case "20:00":
+                case "22:00":
+                    AccessibilityManager.getInstance().startRun();
+                    if ("20:00".equals(format)) {
+                        AccessibilityManager.getInstance().startPolling(50);
+                    }
+                    break;
+                case "09:59":
+                case "21:59":
+                    AccessibilityManager.getInstance().startPolling(58000);
+                    break;
+                case "19:59":
+                    AccessibilityManager.getInstance().startPolling(59975);
+                    break;
             }
         }
     };

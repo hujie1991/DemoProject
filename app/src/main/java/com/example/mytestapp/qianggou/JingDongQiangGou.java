@@ -24,7 +24,6 @@ public class JingDongQiangGou extends BaseQiangGou{
             return;
         }
 
-        //判断按钮状态
         if (qiangGou != null) {
             boolean b = NodeUtil.clickNodeOrParent(qiangGou);
             if (b) {

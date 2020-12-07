@@ -11,7 +11,7 @@ public class YanXuanQiangGou extends BaseQiangGou {
     public static void qiangGou(AccessibilityNodeInfo rootNodeInfo) {
 
         AccessibilityNodeInfo qiangGou = NodeUtil.findById(rootNodeInfo, "com.netease.yanxuan:id/moutai_promotion_button");
-        if (qiangGou != null && qiangGou.getText().toString().equals("今天10:00开始抢购")) {
+        if (qiangGou != null && (qiangGou.getText().toString().equals("今天10:00开始抢购") || qiangGou.getText().toString().equals("今天20:00开始抢购"))) {
             return;
         }
 

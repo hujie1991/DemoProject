@@ -4,6 +4,8 @@ import android.accessibilityservice.AccessibilityService;
 import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 
+import com.example.mytestapp.qianggou.AccessibilityManager;
+
 
 /**
  * @author zhuq

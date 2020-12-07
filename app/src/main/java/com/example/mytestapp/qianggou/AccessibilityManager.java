@@ -1,18 +1,19 @@
-package com.example.mytestapp.service;
+package com.example.mytestapp.qianggou;
 
 import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
+import android.widget.Toast;
 
-import com.example.mytestapp.qianggou.JingDongQiangGou;
-import com.example.mytestapp.qianggou.TianMaoQiangGou;
-import com.example.mytestapp.qianggou.YanXuanQiangGou;
+import com.example.mytestapp.service.GreenAccessibilityService;
 
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Flowable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+
+import static android.widget.Toast.LENGTH_SHORT;
 
 /**
  * @author hujie
@@ -43,10 +44,13 @@ public class AccessibilityManager {
         String className = event.getClassName().toString();
         if (packageName.equals(JONG_DONG_PACKAGE)) {
             JingDongQiangGou.event(className);
+            Toast.makeText(GreenAccessibilityService.getInstance().getApplicationContext(), "收到事件", LENGTH_SHORT).show();
         } else if (packageName.equals(YAN_XUAN_PACKAGE)) {
             YanXuanQiangGou.event(className);
+            Toast.makeText(GreenAccessibilityService.getInstance().getApplicationContext(), "收到事件", LENGTH_SHORT).show();
         } else if (packageName.equals(TIAM_MAO_PACKAGE)) {
             TianMaoQiangGou.event(className);
+            Toast.makeText(GreenAccessibilityService.getInstance().getApplicationContext(), "收到事件", LENGTH_SHORT).show();
         }
         Log.d(TAG, "packageName = " + packageName + " , className = " + className);
     }
