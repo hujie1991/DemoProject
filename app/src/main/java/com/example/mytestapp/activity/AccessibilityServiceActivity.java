@@ -79,7 +79,10 @@ public class AccessibilityServiceActivity extends BaseListActivity {
             if ("10:00".equals(format) || "22:00".equals(format) || "20:00".equals(format)) {
                 Log.d(TAG, "format = " + format);
                 AccessibilityManager.getInstance().startRun();
-            } else if ("09:59".equals(format) || "21:59".equals(format) || "19:59".equals(format)) {
+                if ("20:00".equals(format)) {
+                    AccessibilityManager.getInstance().startPolling(50);
+                }
+            } else if ("09:59".equals(format) || "21:59".equals(format)) {
                 AccessibilityManager.getInstance().startPolling(58000);
                 Log.d(TAG, "format = " + format);
             }

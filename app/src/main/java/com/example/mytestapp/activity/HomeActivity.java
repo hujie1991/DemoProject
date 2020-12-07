@@ -10,7 +10,6 @@ import com.tbruyelle.rxpermissions2.RxPermissions;
 import java.util.List;
 
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
 
 public class HomeActivity extends BaseListActivity {
 
@@ -23,6 +22,7 @@ public class HomeActivity extends BaseListActivity {
         datas.add(new BaseItemEntity("权限设置", "MainActivity"));
         datas.add(new BaseItemEntity("RxJava", "RxJavaActivity"));
         datas.add(new BaseItemEntity("Setting数据读取", "SettingReadActivity"));
+        datas.add(new BaseItemEntity("文件测试", "FileTestActivity"));
         datas.add(new BaseItemEntity("无障碍辅助功能", "AccessibilityServiceActivity"));
 //        datas.add(new BaseItemEntity("java8新特性", "Java8NewActivity"));
 //        datas.add(new BaseItemEntity("截屏", "ScreenshotActivity"));
@@ -34,7 +34,7 @@ public class HomeActivity extends BaseListActivity {
 //        datas.add(new BaseItemEntity("Activity生命周期", "ActivityLifeCycle"));
 //        datas.add(new BaseItemEntity("Hook", "HookActivity"));
 
-        initPermission();
+//        initPermission();
     }
 
     @Override

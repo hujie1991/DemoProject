@@ -18,24 +18,30 @@ public class TianMaoQiangGou extends BaseQiangGou {
 //        }
 //    }
 
+//    AccessibilityNodeInfo goumai = NodeUtil.findByText(rootNodeInfo, "立即购买", "android.widget.TextView");
+//        if (goumai != null) {
+//        boolean b = NodeUtil.clickNodeOrParent(goumai);
+//        if (b) {
+//            Log.d(TAG, "立即购买");
+//            return;
+//        }
+//    }
+//
+//    AccessibilityNodeInfo confirm = NodeUtil.findById(rootNodeInfo, "com.tmall.wireless:id/confirm");
+//        if (confirm != null) {
+//        boolean b = NodeUtil.clickNodeOrParent(confirm);
+//        if (b) {
+//            Log.d(TAG, "确定");
+//            return;
+//        }
+//    }
+
     public static void qiangGou(AccessibilityNodeInfo rootNodeInfo) {
 
-        AccessibilityNodeInfo goumai = NodeUtil.findByText(rootNodeInfo, "立即购买", "android.widget.TextView");
-        if (goumai != null) {
-            boolean b = NodeUtil.clickNodeOrParent(goumai);
-            if (b) {
-                Log.d(TAG, "立即购买");
-                return;
-            }
-        }
-
-        AccessibilityNodeInfo confirm = NodeUtil.findById(rootNodeInfo, "com.tmall.wireless:id/confirm");
-        if (confirm != null) {
-            boolean b = NodeUtil.clickNodeOrParent(confirm);
-            if (b) {
-                Log.d(TAG, "确定");
-                return;
-            }
+        AccessibilityNodeInfo qiangGou = NodeUtil.findById(rootNodeInfo, "com.tmall.wireless:id/button_cart_charge");
+        if (qiangGou != null) {
+            boolean b = NodeUtil.clickNodeOrParent(qiangGou);
+            Log.d(TAG, "结算");
         }
 
         AccessibilityNodeInfo order = NodeUtil.findByText(rootNodeInfo, "提交订单", "android.widget.TextView");
