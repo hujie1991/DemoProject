@@ -6,7 +6,10 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Toast;
 
 import com.example.mytestapp.service.GreenAccessibilityService;
+import com.example.mytestapp.utils.AccessibilityLogUtils;
+import com.example.mytestapp.utils.NodeUtil;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Flowable;
@@ -62,7 +65,7 @@ public class AccessibilityManager {
             startRun();
         }, error -> {
             Log.d(TAG, "startPolling", error);
-            startPolling(50);
+            startPolling(5000);
         });
     }
 
@@ -80,7 +83,35 @@ public class AccessibilityManager {
                 YanXuanQiangGou.qiangGou(rootInActiveWindow);
             } else if (TIAM_MAO_PACKAGE.contentEquals(packageName)) {
                 TianMaoQiangGou.qiangGou(rootInActiveWindow);
+            } else {
+//                logId(rootInActiveWindow, "同意并使用", "android.widget.Button");
+//                logId(rootInActiveWindow, "同意", "android.widget.Button");
+//                logId(rootInActiveWindow, "退出", "android.widget.Button");
+//                AccessibilityLogUtils.dfsnode(rootInActiveWindow, 1);
+
+
+//                List<AccessibilityNodeInfo> byIds = NodeUtil.findByIds(rootInActiveWindow, "com.bbk.launcher2:id/more");
+//                List<AccessibilityNodeInfo> byText = NodeUtil.findByIds(rootInActiveWindow, "com.bbk.launcher2:id/label");
+//                if (byIds != null && !byIds.isEmpty()) {
+//                    byIds.forEach(access -> {
+//                        NodeUtil.clickNodeOrParent(access);
+//                    });
+//                }
             }
+        }
+    }
+
+    private void logId(AccessibilityNodeInfo nodeInfo, String text, String viewClassName) {
+        AccessibilityNodeInfo byText = NodeUtil.findByText(nodeInfo, text, viewClassName);
+        if (byText != null) {
+            Log.d(TAG, text + " - ViewIdResourceName = " + byText.getViewIdResourceName());
+        }
+    }
+
+    private void logText(AccessibilityNodeInfo nodeInfo, String id) {
+        AccessibilityNodeInfo idNodeInfo = NodeUtil.findById(nodeInfo, id);
+        if (idNodeInfo != null) {
+            Log.d(TAG, "text = " + idNodeInfo.getText());
         }
     }
 
@@ -96,7 +127,7 @@ public class AccessibilityManager {
 
     private Flowable<Long> createTimer(long dlay) {
         return Flowable
-                .interval(dlay, 50, TimeUnit.MILLISECONDS)
+                .interval(dlay, 5000, TimeUnit.MILLISECONDS)
                 .observeOn(Schedulers.io())
                 .subscribeOn(Schedulers.io());
     }

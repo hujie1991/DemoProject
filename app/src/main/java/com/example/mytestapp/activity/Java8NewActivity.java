@@ -25,8 +25,8 @@ public class Java8NewActivity extends BaseListActivity {
 
     @Override
     public void initData(List<BaseItemEntity> datas) {
-        datas.add(new BaseItemEntity("onClick0", "0"));
-        datas.add(new BaseItemEntity("onClick1", "1"));
+        datas.add(new BaseItemEntity("？？？", "0"));
+        datas.add(new BaseItemEntity("获取最近任务列表并打印", "1"));
         datas.add(new BaseItemEntity("onClick2", "2"));
         datas.add(new BaseItemEntity("onClick3", "3"));
         datas.add(new BaseItemEntity("抢占音频焦点", "4"));
@@ -38,11 +38,11 @@ public class Java8NewActivity extends BaseListActivity {
     public void onClickItem(int position, String value) {
         switch (position) {
             case 0:
-                onClick0();
                 break;
 
             case 1:
-                click1();
+//                click1();
+
                 break;
 
             case 2:

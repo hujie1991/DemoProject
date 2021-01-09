@@ -53,7 +53,7 @@ public class AccessibilityServiceActivity extends BaseListActivity {
     public void onClickItem(int position, String value) {
         switch (value) {
             case "0":
-                if (PermissionUtils.isAccessibilitySettingsOn(this)) {
+                if (isNext()) {
                     Toast.makeText(this, "无障碍服务权限已开启", Toast.LENGTH_SHORT).show();
                 } else {
                     PermissionUtils.startAccessibility(this);
@@ -90,9 +90,9 @@ public class AccessibilityServiceActivity extends BaseListActivity {
                 case "21:59":
                     AccessibilityManager.getInstance().startPolling(58000);
                     break;
-                case "19:59":
-                    AccessibilityManager.getInstance().startPolling(59975);
-                    break;
+//                case "19:59":
+//                    AccessibilityManager.getInstance().startPolling(59975);
+//                    break;
             }
         }
     };

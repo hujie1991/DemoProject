@@ -29,11 +29,11 @@ public class GreenAccessibilityService extends AccessibilityService {
 
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
-        if (event != null && event.getPackageName() != null && event.getClassName() != null
-                && event.getEventType() == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED) {
-            AccessibilityManager.getInstance().onAccessibilityEvent(event);
-            Log.d(TAG, "event = " + event);
-        }
+//        if (event != null && event.getPackageName() != null && event.getClassName() != null
+//                && event.getEventType() == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED) {
+//            AccessibilityManager.getInstance().onAccessibilityEvent(event);
+            Log.d(TAG,  "type = " + event.getEventType() + "event--package = " + event.getPackageName() + " , className =" + event.getClassName());
+//        }
     }
 
     @Override

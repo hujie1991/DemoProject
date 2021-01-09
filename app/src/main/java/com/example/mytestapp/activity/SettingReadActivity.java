@@ -2,6 +2,8 @@ package com.example.mytestapp.activity;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 import android.provider.Settings;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
@@ -56,7 +58,14 @@ public class SettingReadActivity extends BaseListActivity {
                 break;
 
             case 5:
-                initPermission();
+                if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.JELLY_BEAN) {
+                    Settings.System.putInt(getContentResolver(), Settings.System.AIRPLANE_MODE_ON, 1);
+                } else {
+                    Settings.Global.putInt(getContentResolver(), Settings.Global.AIRPLANE_MODE_ON, 1);
+                }
+                Intent intent = new Intent(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+                intent.putExtra("state", true);
+                sendBroadcast(intent);
                 break;
 
             case 6:

@@ -128,6 +128,14 @@ public class NodeUtil {
         return list.get(0);
     }
 
+    public static List<AccessibilityNodeInfo> findByIds(AccessibilityNodeInfo accessibilityNodeInfo, String value) {
+        List<AccessibilityNodeInfo> list = accessibilityNodeInfo.findAccessibilityNodeInfosByViewId(value);
+        if (list == null || list.isEmpty()) {
+            return null;
+        }
+        return list;
+    }
+
 
     public static List<AccessibilityNodeInfo> findOrScrollByViewClassName(AccessibilityNodeInfo nodeInfo, ViewClassName viewClassName) {
         List<AccessibilityNodeInfo> nodeInfos = findByViewClassName(nodeInfo, viewClassName.getClassName());
