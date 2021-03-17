@@ -9,7 +9,6 @@ import com.example.mytestapp.service.GreenAccessibilityService;
 import com.example.mytestapp.utils.AccessibilityLogUtils;
 import com.example.mytestapp.utils.NodeUtil;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Flowable;
@@ -62,12 +61,26 @@ public class AccessibilityManager {
         stopPolling();
         subscribe = createTimer(dlay).subscribe(times -> {
             Log.d(TAG, "start");
-            startRun();
+//            startRun();
+            logAllNodeInfo();
         }, error -> {
             Log.d(TAG, "startPolling", error);
             startPolling(5000);
         });
     }
+
+
+    private void logAllNodeInfo() {
+        GreenAccessibilityService instance = GreenAccessibilityService.getInstance();
+        if (instance != null) {
+            AccessibilityNodeInfo rootInActiveWindow = instance.getRootInActiveWindow();
+            if (rootInActiveWindow == null) {
+                return;
+            }
+            AccessibilityLogUtils.dfsnode(rootInActiveWindow, 0);
+        }
+    }
+
 
     public void startRun() {
         GreenAccessibilityService instance = GreenAccessibilityService.getInstance();

@@ -58,9 +58,9 @@ public class UsageStatsActivity extends BaseActivity {
         UsageStatsManager usageStatsManager = (UsageStatsManager) getSystemService(Context.USAGE_STATS_SERVICE);
         UsageEvents usageEvents = usageStatsManager.queryEvents(startTs, endTs);
         UsageEvents.Event eventOut = new UsageEvents.Event();
-        StringBuilder builder = new StringBuilder();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH);
-//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss SSS", Locale.ENGLISH);
+        StringBuilder builder = new StringBuilder("\n");
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss SSS", Locale.ENGLISH);
         Date date = new Date();
         String item;
         int count = 0;

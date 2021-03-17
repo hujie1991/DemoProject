@@ -1,7 +1,9 @@
 package com.example.mytestapp.activity;
 
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ShortcutManager;
 import android.media.AudioAttributes;
 import android.media.AudioFocusRequest;
 import android.media.AudioManager;
@@ -11,6 +13,7 @@ import android.os.UserManager;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.mytestapp.R;
 import com.example.mytestapp.entity.BaseItemEntity;
 
 import java.util.Arrays;
@@ -38,33 +41,96 @@ public class Java8NewActivity extends BaseListActivity {
     public void onClickItem(int position, String value) {
         switch (position) {
             case 0:
+//                toWeChatScanDirect(this);
                 break;
 
             case 1:
 //                click1();
-
+//                openWeixinToQE_Code(this);
                 break;
 
             case 2:
-                click2();
+//                click2();
+//                toWeChatScan();
                 break;
 
             case 3:
-                click3();
+//                click3();
                 break;
 
             case 4:
-                click4();
+//                click4();
                 break;
 
             case 5:
-                click5();
-
+//                click5();
+                Intent alHomeIntent = new Intent();
+                alHomeIntent.setComponent(ComponentName.unflattenFromString("com.eg.android.AlipayGphone/com.eg.android.AlipayGphone.AlipayLogin"));
+                alHomeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(alHomeIntent);
+                break;
             case 6:
-                click6();
+//                click6();
+                statAlipayqr(++aliId);
                 break;
         }
     }
+
+    int aliId = 10000010;
+
+    private void statAlipayqr(int id) {
+        Intent alHomeIntent = new Intent();
+        alHomeIntent.setComponent(ComponentName.unflattenFromString("com.eg.android.AlipayGphone/com.eg.android.AlipayGphone.AlipayLogin"));
+        alHomeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(alHomeIntent);
+
+        Uri uri = Uri.parse("alipayqr://platformapi/startapp?saId=10000007");
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
+    public static void toWeChatScanDirect(Context context) {
+        try {
+            Intent intent = new Intent();
+            intent.setAction("android.intent.action.VIEW");
+            intent.setComponent(new ComponentName("com.tencent.mm", "com.tencent.mm.ui.LauncherUI"));
+            intent.putExtra("LauncherUI.From.Scaner.Shortcut", true);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            context.startActivity(intent);
+        } catch (Exception e) {
+
+        }
+    }
+
+    /**
+     * 打开微信并跳入到二维码扫描页面
+     *
+     * @param context
+     */
+    public static void openWeixinToQE_Code(Context context) {
+        try {
+            Intent intent = context.getPackageManager().getLaunchIntentForPackage("com.tencent.mm");
+            intent.putExtra("LauncherUI.From.Scaner.Shortcut", true);
+            context.startActivity(intent);
+
+        } catch (Exception e) {
+        }
+    }
+
+    private void toWeChatScan() {
+        try {
+            //利用Intent打开微信
+            Uri uri = Uri.parse("weixin://dl/scan");
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
+        } catch (Exception e) {
+            //若无法正常跳转，在此进行错误处理
+            Toast.makeText(this, "无法跳转到微信，请检查是否安装了微信", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
 
     private void click6() {
         UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
@@ -123,7 +189,14 @@ public class Java8NewActivity extends BaseListActivity {
     private void click2() {
         Converter<String, Integer> converter = Integer::valueOf;
         int num = 1;
+        Integer convert = converter.convert("1");
         Converter<String, Integer> converter1 = (form) -> Integer.valueOf(form + num);
+        Integer convert1 = converter1.convert("2");
+
+        Function<String, Integer> toInteger = Integer::valueOf;
+        Function<String, String> backToString = toInteger.andThen(String::valueOf);
+        backToString.apply("123");     // "123"
+
     }
 
     private AudioManager mAudioManager;
@@ -174,6 +247,9 @@ public class Java8NewActivity extends BaseListActivity {
     @FunctionalInterface
     interface Converter<F, T> {
         T convert(F from);
+        default int getAge() {
+            return 18;
+        }
     }
 
     interface Formula {
