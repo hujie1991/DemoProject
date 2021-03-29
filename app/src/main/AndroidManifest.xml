@@ -40,13 +40,13 @@
 
         <receiver
             android:name=".receiver.AutostartDetector"
-            android:enabled="true"
+            android:directBootAware="true"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.ACTION_SHUTDOWN" />
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.TIME_TICK" />
-
+                <action android:name="android.intent.action.ACTION_SHUTDOWN" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>

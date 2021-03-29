@@ -60,9 +60,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         init();
-        initTimeRec();
+//        initTimeRec();
         //触发LeakCanary内存泄漏检测
-        new LeakThread().start();
+//        new LeakThread().start();
     }
 
     private void initTimeRec() {

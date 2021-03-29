@@ -2,17 +2,28 @@ package com.example.mytestapp;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
 import android.os.Bundle;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 
+import timber.log.Timber;
+
 public class MyApplication extends Application {
+
+    private static Context mContext;
+
+    public static Context getContext() {
+        return mContext;
+    }
 
     @Override
     public void onCreate() {
         super.onCreate();
+        mContext = this;
         registerActivityLifecycleCallbacks(new ActivityLifecycle());
         initLibrary();
+        initTimber();
     }
 
     private void initLibrary() {
@@ -28,41 +39,47 @@ public class MyApplication extends Application {
         ARouter.init(this);
     }
 
+    private void initTimber() {
+        if (BuildConfig.DEBUG) {
+            Timber.plant(new Timber.DebugTree());
+        }
+    }
+
 
     public class ActivityLifecycle implements Application.ActivityLifecycleCallbacks {
         private static final String TAG = "ActivityLife";
         @Override
         public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-            android.util.Log.d(TAG,activity.getClass().getSimpleName()+"...onCreate");
+            Timber.d(activity.getClass().getSimpleName() + "...onCreate");
         }
 
         @Override
         public void onActivityStarted(Activity activity) {
-            android.util.Log.d(TAG,activity.getClass().getSimpleName()+"...onActivityStarted");
+            Timber.d(activity.getClass().getSimpleName() + "...onActivityStarted");
         }
 
         @Override
         public void onActivityResumed(Activity activity) {
-            android.util.Log.d(TAG,activity.getClass().getSimpleName()+"...onResumed");
+            Timber.d(activity.getClass().getSimpleName() + "...onResumed");
         }
 
         @Override
         public void onActivityPaused(Activity activity) {
-            android.util.Log.d(TAG,activity.getClass().getSimpleName()+"...onPaused");
+            Timber.d(activity.getClass().getSimpleName() + "...onPaused");
         }
 
         @Override
         public void onActivityStopped(Activity activity) {
-            android.util.Log.d(TAG,activity.getClass().getSimpleName()+"...onStopped");
+            Timber.d(activity.getClass().getSimpleName() + "...onStopped");
         }
         @Override
         public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
-            android.util.Log.d(TAG,activity.getClass().getSimpleName()+"...onSaveInstanceState");
+            Timber.d(activity.getClass().getSimpleName() + "...onSaveInstanceState");
         }
 
         @Override
         public void onActivityDestroyed(Activity activity) {
-            android.util.Log.d(TAG,activity.getClass().getSimpleName()+"...onActivityDestroyed");
+            Timber.d(activity.getClass().getSimpleName() + "...onActivityDestroyed");
         }
     }
 }

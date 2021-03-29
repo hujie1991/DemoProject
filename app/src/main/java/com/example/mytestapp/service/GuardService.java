@@ -4,12 +4,13 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
-import android.util.Log;
 
 import androidx.annotation.Nullable;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
+
+import timber.log.Timber;
 
 /**
  * @author hujie
@@ -18,36 +19,35 @@ import java.io.PrintWriter;
  */
 public class GuardService extends Service {
 
-    final String TAG = "GuardService";
 
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        Log.d(TAG, "onBind");
+        Timber.d("onBind");
         return new Binder();
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.d(TAG, "onCreate");
+        Timber.d("onCreate");
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.d(TAG, "onStartCommand");
+        Timber.d("onStartCommand");
         return START_STICKY;
     }
 
     @Override
     public void onDestroy() {
-        Log.d(TAG, "onDestroy");
+        Timber.d("onDestroy");
         super.onDestroy();
     }
 
     @Override
     protected void dump(FileDescriptor fd, PrintWriter writer, String[] args) {
-        Log.d(TAG, "dump");
+        Timber.d("dump");
         super.dump(fd, writer, args);
     }
 }

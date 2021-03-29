@@ -68,7 +68,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.1.0'
     implementation 'androidx.percentlayout:percentlayout:1.0.0'
 
-    implementation 'com.jakewharton.timber:timber:4.6.0'
+    implementation 'com.jakewharton.timber:timber:4.7.1'
 
     //高德定位
     implementation files('libs/AMap_Location_V5.3.0_20210317.jar')

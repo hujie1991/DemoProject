@@ -7,6 +7,7 @@ import android.content.ServiceConnection;
 import android.os.Build;
 import android.os.IBinder;
 
+import com.example.mytestapp.MyApplication;
 import com.example.mytestapp.utils.ProcessUtil;
 
 import timber.log.Timber;
@@ -17,6 +18,20 @@ import timber.log.Timber;
  * Date : 2021-03-29 17:02
  */
 public class CoreModel {
+
+    private Context mContext;
+
+    private CoreModel() {
+        mContext = MyApplication.getContext();
+    }
+
+    public static CoreModel getInstance() {
+        return CoreModelHolder.INSTANCE;
+    }
+
+    private static class CoreModelHolder {
+        private static final CoreModel INSTANCE = new CoreModel();
+    }
 
     public void startCoreService() {
         if (ProcessUtil.isAppMainProcess(mContext)) {
