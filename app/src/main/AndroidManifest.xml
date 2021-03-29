@@ -90,6 +90,12 @@
                 android:name="android.accessibilityservice"
                 android:resource="@xml/accessibility" />
         </service>
+        <!-- 核心服务 -->
+        <service
+            android:name=".service.GuardService"
+            android:directBootAware="true"
+            android:exported="true">
+        </service>
     </application>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
