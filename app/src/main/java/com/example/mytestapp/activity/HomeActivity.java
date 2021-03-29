@@ -19,6 +19,8 @@ public class HomeActivity extends BaseListActivity {
     @Override
     public void initData(List<BaseItemEntity> datas) {
         datas.add(new BaseItemEntity("读取应用使用记录", "UsageStatsActivity"));
+        datas.add(new BaseItemEntity("高德定位", "GdLocationActivity"));
+        datas.add(new BaseItemEntity("快捷方式测试", "ShortcutActivity"));
         datas.add(new BaseItemEntity("权限设置", "MainActivity"));
         datas.add(new BaseItemEntity("RxJava", "RxJavaActivity"));
         datas.add(new BaseItemEntity("Setting数据读取", "SettingReadActivity"));
@@ -33,7 +35,7 @@ public class HomeActivity extends BaseListActivity {
 //        datas.add(new BaseItemEntity("Activity生命周期", "ActivityLifeCycle"));
 //        datas.add(new BaseItemEntity("Hook", "HookActivity"));
 
-//        initPermission();
+        initPermission();
     }
 
     @Override
@@ -53,7 +55,8 @@ public class HomeActivity extends BaseListActivity {
 
     private void initPermission() {
         permissions = new RxPermissions(this);
-        permissionDisposable = permissions.request(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE)
+        permissionDisposable = permissions.request(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION)
                 .subscribe(aBoolean -> {
                     Log.d("HomeActivity", "aBoolean = " + aBoolean);
                     if (aBoolean) {

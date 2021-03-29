@@ -1,21 +1,31 @@
 package com.example.mytestapp.activity;
 
 import android.content.ComponentName;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.pm.ShortcutManager;
+import android.database.ContentObserver;
+import android.database.Cursor;
 import android.media.AudioAttributes;
 import android.media.AudioFocusRequest;
 import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Handler;
 import android.os.UserManager;
+import android.provider.Settings;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mytestapp.R;
 import com.example.mytestapp.entity.BaseItemEntity;
+import com.example.mytestapp.receiver.LauncherAppsCompatVL;
+import com.google.gson.Gson;
 
+import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
@@ -37,41 +47,86 @@ public class Java8NewActivity extends BaseListActivity {
         datas.add(new BaseItemEntity("是否系统用户", "6"));
     }
 
+    private TextView myTextInfo;
+
+    @Override
+    public void initView() {
+        super.initView();
+        myTextInfo = new TextView(this);
+        llContentView.addView(myTextInfo);
+    }
+
+    public static void setComponentEnabledSetting(Context context, String className, boolean disable) {
+        ComponentName mhCN = new ComponentName(context, className);
+        PackageManager pm = context.getPackageManager();
+        pm.setComponentEnabledSetting(mhCN, disable ? PackageManager.COMPONENT_ENABLED_STATE_DISABLED : PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
+    }
+
+    private static Class classSystemProperties;
+    private static Method methodGetProperty;
+
     @Override
     public void onClickItem(int position, String value) {
         switch (position) {
             case 0:
 //                toWeChatScanDirect(this);
+                String MANUFACTURER = Build.MANUFACTURER;
+                try {
+                    classSystemProperties = Class.forName("android.os.SystemProperties");
+                    methodGetProperty = classSystemProperties.getMethod("get", new Class[]{String.class});
+                    String osVersion = (String) methodGetProperty.invoke(0x0, new Object[]{"ro.vivo.os.version"});
+                    myTextInfo.setText(osVersion);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+//                setComponentEnabledSetting(this, "com.example.mytestapp.activity.HomeActivity", true);
                 break;
 
             case 1:
 //                click1();
 //                openWeixinToQE_Code(this);
+                StringBuilder stringBuilder = new StringBuilder();
+                Uri uri_user = Uri.parse("content://com.vivo.upslide.speedup.provider/speedupwhitelist");
+                Cursor cursor = getContentResolver().query(uri_user, null, null, null, null);
+                if (cursor == null || cursor.getCount() == 0) {
+                    return;
+                }
+                int pkgnameColumnIndex = cursor.getColumnIndex("pkgname");
+                while(cursor.moveToNext()) {
+                    String string = cursor.getString(pkgnameColumnIndex);
+                    stringBuilder.append(string + " , ");
+                }
+                myTextInfo.setText(stringBuilder.toString());
+                cursor.close();
                 break;
 
             case 2:
+                setComponentEnabledSetting(this, "android.app.AppDetailsActivity", false);
 //                click2();
 //                toWeChatScan();
                 break;
 
             case 3:
+                setComponentEnabledSetting(this, "android.app.AppDetailsActivity", true);
 //                click3();
                 break;
 
             case 4:
+                Uri uriFor = Settings.Global.getUriFor(Settings.Global.ADB_ENABLED);
+                getContentResolver().registerContentObserver(uriFor, false, new ContentObserver(new Handler()) {
+                    @Override
+                    public void onChange(boolean selfChange) {
+                        super.onChange(selfChange);
+                    }
+                });
 //                click4();
                 break;
 
             case 5:
 //                click5();
-                Intent alHomeIntent = new Intent();
-                alHomeIntent.setComponent(ComponentName.unflattenFromString("com.eg.android.AlipayGphone/com.eg.android.AlipayGphone.AlipayLogin"));
-                alHomeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(alHomeIntent);
                 break;
             case 6:
 //                click6();
-                statAlipayqr(++aliId);
                 break;
         }
     }
