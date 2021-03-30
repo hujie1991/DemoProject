@@ -34,7 +34,9 @@ public class CoreModel {
     }
 
     public void startCoreService() {
+        Timber.d("startCoreService()");
         if (ProcessUtil.isAppMainProcess(mContext)) {
+            Timber.d("main thread");
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 mContext.startForegroundService(new Intent(mContext, GuardService.class));
             } else {

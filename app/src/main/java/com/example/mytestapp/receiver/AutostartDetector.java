@@ -25,6 +25,7 @@ public class AutostartDetector extends BroadcastReceiver {
                 Timber.d(intent.toString());
                 break;
             case Intent.ACTION_LOCKED_BOOT_COMPLETED:
+            case Intent.ACTION_BOOT_COMPLETED:
                 Timber.d("开机");
                 CoreModel.getInstance().startCoreService();
                 CoreModel.getInstance().bindCoreService();

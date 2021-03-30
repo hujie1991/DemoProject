@@ -27,6 +27,7 @@ public class HomeActivity extends BaseListActivity {
         datas.add(new BaseItemEntity("文件测试", "FileTestActivity"));
         datas.add(new BaseItemEntity("无障碍辅助功能", "AccessibilityServiceActivity"));
         datas.add(new BaseItemEntity("java8新特性", "Java8NewActivity"));
+        datas.add(new BaseItemEntity("触发一个null异常", null));
 //        datas.add(new BaseItemEntity("截屏", "ScreenshotActivity"));
 //        datas.add(new BaseItemEntity("ui测试页面", "UiTestActivity"));
 //        datas.add(new BaseItemEntity("悬浮窗Activity", "SuspensionActivity"));
@@ -40,6 +41,9 @@ public class HomeActivity extends BaseListActivity {
 
     @Override
     public void onClickItem(int position, String activityName) {
+        if (activityName == null) {
+            throw new NullPointerException("activityName is null");
+        }
         Intent intent = new Intent();
         intent.setClassName(HomeActivity.this, "com.example.mytestapp.activity." + activityName);
         startActivity(intent);

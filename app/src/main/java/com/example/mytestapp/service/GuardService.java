@@ -7,6 +7,7 @@ import android.os.IBinder;
 
 import androidx.annotation.Nullable;
 
+
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 
@@ -31,6 +32,7 @@ public class GuardService extends Service {
     public void onCreate() {
         super.onCreate();
         Timber.d("onCreate");
+        NotifyModel.bindNotify(this, NotifyModel.GUARD_NOTIFY_CHANNEL_ID, NotifyModel.GUARD_NOTIFY_ID, "测试通知", "通知内容1", "Status");
     }
 
     @Override

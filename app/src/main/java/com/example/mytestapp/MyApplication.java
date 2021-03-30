@@ -6,6 +6,8 @@ import android.content.Context;
 import android.os.Bundle;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.mytestapp.crash.DiskCrashHandler;
+import com.example.mytestapp.service.CoreModel;
 
 import timber.log.Timber;
 
@@ -21,6 +23,14 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         mContext = this;
+        init();
+    }
+
+    private void init() {
+        CoreModel.getInstance().startCoreService();
+        CoreModel.getInstance().bindCoreService();
+
+        DiskCrashHandler.init();
         registerActivityLifecycleCallbacks(new ActivityLifecycle());
         initLibrary();
         initTimber();
