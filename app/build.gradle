@@ -70,6 +70,7 @@ dependencies {
 
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
+    implementation "org.java-websocket:Java-WebSocket:1.5.1"
     //高德定位
     implementation files('libs/AMap_Location_V5.3.0_20210317.jar')
 }

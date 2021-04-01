@@ -8,6 +8,7 @@ import android.os.Bundle;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.mytestapp.crash.DiskCrashHandler;
 import com.example.mytestapp.service.CoreModel;
+import com.example.mytestapp.utils.AppContextHolder;
 
 import timber.log.Timber;
 
@@ -23,6 +24,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         mContext = this;
+        AppContextHolder.setAppContext(this);
         init();
     }
 

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.util.Log;
 
 import com.example.mytestapp.entity.BaseItemEntity;
+import com.example.mytestapp.utils.disklog.DiskLog;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import java.util.List;
@@ -20,6 +21,7 @@ public class HomeActivity extends BaseListActivity {
     public void initData(List<BaseItemEntity> datas) {
         datas.add(new BaseItemEntity("读取应用使用记录", "UsageStatsActivity"));
         datas.add(new BaseItemEntity("高德定位", "GdLocationActivity"));
+        datas.add(new BaseItemEntity("websocket", "WebSocketActivity"));
         datas.add(new BaseItemEntity("快捷方式测试", "ShortcutActivity"));
         datas.add(new BaseItemEntity("权限设置", "MainActivity"));
         datas.add(new BaseItemEntity("RxJava", "RxJavaActivity"));
@@ -44,6 +46,7 @@ public class HomeActivity extends BaseListActivity {
         if (activityName == null) {
             throw new NullPointerException("activityName is null");
         }
+        DiskLog.d("position = %d, activityName = %s", position, activityName);
         Intent intent = new Intent();
         intent.setClassName(HomeActivity.this, "com.example.mytestapp.activity." + activityName);
         startActivity(intent);
