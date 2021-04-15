@@ -1,11 +1,11 @@
+APP_SHARE_KEYGUARD_STATE=0
 FlashState=0
-Log_upload_flag=1
-SGDF_UUID_SS=SGDF_789b2b73-8951-49cd-abd9-3886a7f2f695353341140594501
+Pin_Lock=1
+SETUP_WIZARD_DISPLAY=0
+SGDF_UUID_SS=SGDF_06e2a8bd-e5c0-4570-b60d-d48787fef47b628367611731981
 VivoKeyboard=0
 _VIVIEN_FASTFOOD=1
 accelerometer_rotation=1
-action_time_alarm_change=1
-action_time_change=-1
 agent_smartlock_status=0
 agent_window_status=0
 agps_slp_address=221.176.0.55
@@ -15,46 +15,46 @@ agps_slp_port=7275
 agps_slp_port_type=IPv4address:port
 ai_new_card_notice=0
 aikey_disable_setting=0
-alarm_alert=content://media/internal/audio/media/171
+alarm_alert=content://media/internal/audio/media/86?title=Fine%20Day&canonical=1
 alarm_alert_set=1
-alarm_boot_time=1615882483492
+alarm_boot_time=1618468568702
 alarmstate=0
 alert_msg=
 alert_time=-1
-allow_notification_applist=com.android.phone;com.android.mms;com.tencent.mm;com.tencent.mobileqq;
 already_copy_data=1
 app_aa_brighness_count=0,0,
-app_ad_brighness_count=0,0,
 app_ae_brighness_count=0,0,
 app_af_brighness_count=0,0,
 app_bri_ratio=
 appbrighness_count=0,0,
 apps=0
-ascending_ring=0
-autobrighness_count=0,0,
+ascending_ring=1
+autobrighness_count=8386,0,
 autobrighness_key_param=-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-10000,-10000,-10000,-10000,-10000,-10000,-10000,-10000,-10000,-10000,-10000,-10000,-10000,-10000,-10000,-10000,-10000,-10000,
-autobrighness_litlvl={"lv1":"4951434","lv3":"1132215854","lv2":"26630242","lv5":"418592","lv4":"2949","lv6":"0","ds":"260"}
-autobrighness_param={"rneed":[[-1,-101],[-1,-101],[-1,-101],[-1,-101],[-1,-101],[-1,-101],[-1,-101],[-1,-101],[-1,-101],[-1,-101],[-1,-101],[-1,-101],[-1,-101],[-1,-101],[-1,-101]],"phone_status":[-1,-1,-1],"pscount":0,"camopcount":0,"set_bri":false,"c_ver":2}
+autobrighness_litlvl={"lv1":"56729311","lv3":"1501190016","lv2":"48019979","lv5":"2800","lv4":"1144","lv6":"0","ds":"169"}
+autobrighness_param={"rneed":[[-1,-101],[-1,-101],[-1,-101],[-1,-101],[-1,-101],[-1,-101],[-1,-101],[-1,-101],[-1,-101],[-1,-101],[-1,-101],[-1,-101],[-1,-101],[-1,-101],[-1,-101]],"phone_status":[-1,-1,0],"pscount":7829,"camopcount":0,"set_bri":false,"c_ver":2}
 autobrighness_record=-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,
 autobrighness_silent_opt=
-autobrightness_udf=-1
 back_flashlight_state=0
-baidu_pass_cuid=F03663F829D20461CE9456557CC5986EA676029EE1AFA96B0FCF656248405E440E9E7A8AF51064A4CA98CFEC36156A16F5317125BCE4B46B641229E44ED5AB77
+back_side_slide_gesture=0
+background_call_on=0
+baidu_pass_cuid=55D1CC628DF302CCFE0C2A9B64F55CE2ACD74B2B2E843D1E364058B6A565AD50BEE266CF4384F101156CAFFA2EAEB8E00DB9A77FE7874FF736DF5DD10286DDF6
 bbk_application_settings=1
 bbk_capture_settings=1
 bbk_cover_screen_mute_setting=0
-bbk_crontab_used=1
-bbk_crontab_used_poweron_count=1
-bbk_crontab_used_poweron_firsttime=1597199919212
+bbk_crontab_used_poweron_count=3
+bbk_crontab_used_poweron_firsttime=1612661591171
 bbk_crontab_used_vibrate_count=1
-bbk_crontab_used_vibrate_firsttime=1587879150305
+bbk_crontab_used_vibrate_firsttime=1617267622690
 bbk_default_sim=0
 bbk_default_sim_setting=1
 bbk_hand_mode=0
 bbk_holster_state=1
 bbk_input_method_sound=1
-bbk_keep_screen_enable_setting=0
+bbk_keep_screen_enable_setting=1
 bbk_motion_photos_setting=0
+bbk_poweroff_alarmid=2
+bbk_poweroff_alarmtime=1613178000000
 bbk_quick_open_camera_setting=0
 bbk_raiseup_wake_enable_setting=0
 bbk_remove_phone_view_photos_setting=1
@@ -84,7 +84,7 @@ bbk_smart_remind=0
 bbk_smart_reminder_screen_enable_setting=0
 bbk_smart_touch_setting=0
 bbk_smart_unlock=0
-bbk_smart_wakeup=0
+bbk_smart_wakeup=1
 bbk_smart_zoom_setting=1
 bbk_system_tone=2
 bbk_tilt_phone_switch_photos_setting=0
@@ -93,222 +93,268 @@ bbk_touch_control_electronic_book_setting=0
 bbk_touch_control_maps_setting=0
 bbk_touch_control_standby_interface_setting=0
 bbk_touch_settings=1
-bbk_update_notice=1
-bbk_update_version= vivo rev 6.20.1
+bbk_update_notice=0
+bbk_update_version= PD1963_A_5.8.8
 bbk_wave_open_application_setting=0
 bbk_weather_sound=1
 bbk_wfd_enabled=0
 bd_setting_i=0
+block_notification_sound_vibration=0
 bootcompleted=1
 calendar_first_day_of_week=1
-calendar_sound=content://media/internal/audio/media/144
-calendar_sound_alarm=content://media/internal/audio/media/171
+calendar_sound=content://media/internal/audio/media/71?title=Surprised&canonical=1
+calendar_sound_alarm=content://media/internal/audio/media/86?title=Fine%20Day&canonical=1
 calendar_sound_set=1
 call_feedback=1
 call_log=1
 car_mode_map_foreground=0
 carmode_support_hood=1
-cf611119a2491fb9519f0ba78b552850=1MYWxtnU6RRmmVMd5xr1Hoxggy8/bXIC/kK9nOIrCrY=
+cf611119a2491fb9519f0ba78b552850=YRK6uQPO07XgfQ70UuL2rCc9g7cPQWGKnV38+6XATrE=
+children_mode_eyeprotection_key=1
 childrenmdoe_stranger_verify_pwd=0
 cn.kuwo.sing=1
-colour_gamut_fingerprint_state=0
-com.baidu.deviceid.v2=hzzgA+Pj5quC4oLYPmG5I8FLX5ucJinWyK6YkYSWuzzZnD0M86zj6K/DfxdmvUhX0iCdPjplyzlZ
-NFOKgHtCWNJB2lUv1QAT/cGDA3HWdsw=
-com.baidu.deviceid=D13A6944DED1FF7E6D3E191EA091F5BE
+cold_start_package=
+com.android.dialer.icon.status=0
+com.android.mms.icon.status=0
+com.android.settings.icon.status=0
+com.baidu.deviceid.v2=jcsf/YMeedDaxV2WKvwNh+wa8RgnClzN25HaIGyJBRbxasofrkclfP1idItd0AoxPIxgS9Ukp4gE
+tzpqlTzrfIKqRQl/pmNsGZDoqokzqNw=
+com.baidu.deviceid=6FA87D1837A12DDB6352EC43305980F0
 com.bbk.VoiceOneshot.SWITCH=0
-com.vivo.ewarranty.FREQUENCY=0
 com.vivo.ewarranty.NEXTPOP=
 com.vivo.ewarranty.QUERYED=1
-com.vivo.ewarranty.REGISTER=1
-com.vivo.ewarranty.activation_state=2
+com.vivo.ewarranty.REGISTER=0
+com.vivo.ewarranty.activation_state=0
 com.vivo.ewarranty.firstTime_ing=0
+com.vivo.ewarranty.intervalTime=43200
+com.vivo.ewarranty.maxPromptTime=79200
+com.vivo.ewarranty.minPromptTime=34200
 com.vivo.ewarranty.promptDelayed=0
-com.vivo.ewarranty.record_time_related={"lst":"1564689194300","lut":"70050","rt":"","sat":"0","saut":"0"}
-com.vivo.ewarranty.report_usedtime_state=2
-com.vivo.ewarranty.userinfo=null
+com.vivo.ewarranty.record_time_related={"lst":"1597084402048","lut":"26294694","rt":"","sat":"0","saut":"0"}
+com.vivo.ewarranty.report_usedtime_state=1
 com.vivo.ewarranty.userinfo_state=0
+com.vivo.gallery.icon.status=0
 com.vivo.push.attempts=0
 com.vivo.push.cur_pkg=com.vivo.pushservice
 com.vivo.push.fixed_delay=1
 com.vivo.push.ips_attempts=0
-com.vivo.push.recon_timestamp=1615943829738
+com.vivo.push.recon_timestamp=1618468562649
 com.vivo.pushservice.account=
-com.vivo.pushservice.back_up=mwKebDE4lBMyhRWFmR40NtQ7YzGAxvmozQYG3MEDoMOCv3nRj0ynWJRjsPHqc2xTomrTDJeeFXKGnwKWow73so1UTS4GvfW+Kjl0MzARJSWtOe5io4bmh5L0Dv2XiY/zZP6tM0neMuQvq9r0KYoqpCYAlsEAWWTbHXNmNO8gSklcQvH1kdOIwEucm2atwQerJjUhr09pUMRaWNUnEDCYMESn091GKhLdeParde+sk04b
-SaBRHJEmFSDJofblBkHP0qG4xc2ChgbamXHjzA6BggFYKTNvy7e8IPRtt9ITHn1BU+gtUlBlfFr04UhGq/b0Z1PcNbEDUJVrgeXnpVDZEmz1Ug0q7rTjAcu2RxjuBQ3ebei+liiHIssL6XKOawuolG9Mrj+kXhXRKMazXGpD+5kg6j/xFjn0XiZ5FH4t3x9y6K5yVVbmSPY1yyeXoQJHgYgtX1TTQP7UxcAWGnt8H39+fv7N/phbJlXXU6GDXEvZ6gWkT+0LY
-DXKRpViEA8D8xutrnMQTiJKQvw4jhJ3IOEqzITQDLhEwM6vKEdJ4ZIrSDpwpgma0BtkiHmG5A1hoWIIYCfLPfaENG61XSPFanBLN+yGF1b/JW9PmkCDOel4+vv0dz0jWJWhO5K53LfKPV5xW7dnlX5qJeoWvZtuXwLmSaGjae6Bcknpe2kXVirOG0WhV2T9nO72EMjd1nJqNgE0D8GBrF85H50tuAX9AmDQz6WUrMrbJssgR4vJoFN4cJqH93sR7Fe8DXItNz
-ovapBerNBhN98cAH0uMZKYGeBG0gkmCl7JLZnj3BBGSZUIOjBukslGJhDTv7ZsYBMasOhk+9dTBkrKSzM0xynuZfELn/7BAECeMUqyzE8tvw+FmZV7AAU0/8vgx50ZQMrXHBPuKeTlgEF06WbCIFJ6aA==
-com.vivo.pushservice.build_version=PD1838_A_6.19.5
+com.vivo.pushservice.back_up=/6US1hhQNlr/HZ5n8fUMm+uaPEvW9KxfEznTMnwBulUkAwPkmtNAoT0fTjK0KlCn2DxxtEeANBWSYgfM3s1mpPC1g03ZdzC4ZJnVck5oz5/X3rzmBPh3iWo8cBhgD+H9MITnOmWkx210Ve5ZzkA/EUy8REe4GL2DXnYdyVms9Q8jwAbPHRiyP5vaMYVj/DwCzcUoXHfcuQWzLUcrMclHn9BhwcVyK6uKktI/23mAD5Zr
+iu83GIrSuZwxvmhu3Nlav/5ShYDI4RTrZ/xLSWG+dDRCjfNBi/DvjLU2lu5jEfoJVIvCgnMcmP9bBuOQw3RQ3IrxEJFvqM1nS97pZIeUHW7F8jTui+Xpv1lGmqH7N7Dh7rJiJxowXx5JP7yUAD+pIbj3d4JAIoKk88z8DkTWmjJ7A/iljNc/CxMccwHdnIZH+2zv3KO4DUPI9irKIt07uyI0bwQiMMJrw6IjTHmKS0uHpoGmybgjdKp20JokasGY4DA5GtLM5
+iSdRpn7oUZPcqtsKDSp8N2j4yk12WpAhadEltt3/veLR0cdLEevgHlxTPiCwoMXOLIdBVQ29SLepnczIrFU8/c2xg/LG9BRMl0uKg4NPb+pIu2Jsrncg6IlC36qk5RusMn2QwMQUYBHn2/idDrWKbaq6we9zGxiKazlAYwdOjkoA2mxaQzzMhUSDvdnrB9rbBX/AEFpQyQZE+tNG38AL5asrqhvDiJTavTeV7DdMCcq1u+GIX4PbXNCBD8tuVvqQKHMmgp0Qj
+m13C2ORQvmo+rs1QFiGB9ZDcWSn0xsJd33+l5sLlcT/sae87R+ygzLsmR5LWA//XjUhVLDIXdXObfErsFTV/OVixbGN2FSQGmftYAQQ4Bxqy9iKetx37VrkdXibHc5rOJwqIWBA8CZR2xvehvgio0eYtESuVjJUoGVeUVMZ29+HwXbvGz/JLY8UwETMNeyJJB2
+com.vivo.pushservice.build_version=PD1963_A_5.8.8
 com.vivo.pushservice.channel_id=
 com.vivo.pushservice.channel_token_rsa=r2rh/hvwW4uwul61FbcGWpSVFquJWaV2HBcNE+PQ9JkgHHGBQwuWkpU3OPSFZZTBULc/FpgAA6Tx
 1bOw/EllYdHaXArimVjLBuhHBVpBr2+QVynEtph23wtupNV0Y3oS5QgxJhSSw8X5LcVBBUyQcFAW
 TkNS0SN5Fx2JUEp9WnzY/6v/4i0UKGib5yOaJNJ9
 
-com.vivo.pushservice.client_id=354065327
+com.vivo.pushservice.client_id=432180680
 com.vivo.pushservice.ips=
-com.vivo.pushservice.other=fGsSPnl2ExG+ssoBExxLmJr67fV/J4Xz0FEz3xXBnyWe3CwhOTVT+lwv7WrpzxI1ykH9rPt6/tUBdL5wnA9wuT9QHv2zrjIwTEiNMtOlDvQqYM1bAQqPilWbNJlYaGrK1S2xN3/pZ0iF40edJcxv4L7J4cuTRGENzdYsVHWjCDYxDP6D+9OOfZSxEMwYT1rwjCsGgOyunL61JTGTYRkFy8gBQ7JTKD6X+JNd7IbU4i0k9W
-3JJ68scFWi9vB8sjJi4/4G+7phOhsnAbXGw+sYh0jybH5vJDrP/tKBRyQJOxs8xiWiOq+rQRgFv19b/kFtNfEpeAe2d3l+vR3wfsPYGT2Hi+JQPZiSwXzYfCG8D7/XqHDcgvvIuz0drYTx2vmIl3GUc9NHS7l6vrlZulQrtswu3Fl6deuUwyEx0QAKl5Ap1cG3NubSp+xlYGl42WWwFYTPk31Ujvcr8uEMfEH4ozLeST3Pu9q3DzmxWn/omX0eqKpwdK9XW2U
-Epwv5UZ9egX6k6IGQrHtd+PAG7TesKXeUhvXR2ITIbUXhMS9JP9nPaxCIKKALepTGab4NwFytBZxqumf1Y1fXgkVJFRgbgcT45NTPG/0h/V4WvxJ7OVg=
+com.vivo.pushservice.other=fGsSPnl2ExG+ssoBExxLmJr67fV/J4Xz0FEz3xXBnyWe3CwhOTVT+lwv7WrpzxI1ykH9rPt6/tUB
+dL5wnA9wuT9QHv2zrjIwTEiNMtOlDvQqYM1bAQqPilWbNJlYaGrK1S2xN3/pZ0iF40edJcxv4L7J
+4cuTRGENzdYsVHWjCDYxDP6D+9OOfZSxEMwYT1rwjCsGgOyunL61JTGTYRkFy8gBQ7JTKD6X+JNd
+7IbU4i0k9W3JJ68scFWi9vB8sjJi4/4G+7phOhsnAbXGw+sYh0jybH5vJDrP/tKBRyQJOxs8xiWi
+Oq+rQRgFv19b/kFtNfEpeAe2d3l+vR3wfsPYGT2Hi+JQPZiSwXzYfCG8D7/XqHDcgvvIuz0drYTx
+2vmIl3GUc9NHS7l6vrlZulQrtswu3Fl6deuUwyEx0QAKl5Ap1cG3NubSp+xlYGl42WWwFYTPk31U
+jvcr8uEMfEH4ozLeST3Pu9q3DzmxWn/omX0eqKpwdK9XW2UEpwv5UZ9egX6k6IGQrHtd+PAG7Tes
+KXeUhvXR2ITIbUXhMS9JP9nPaxCIKKALepTGab4NwFytBZxqumf1Y1fXgkVJFRgbgcT45NTPG/0h
+/V4WvxJ7OVg=
+
 com.vivo.pushservice.sdk=
-com.vivo.smartmultiwindow.activesplit=1
-com.vivo.smartmultiwindow.audosplit=1
-com.vivo.smartmultiwindow.inputmethod.backup=
-com.vivo.smartmultiwindow.suggestsplit=1
+com.vivo.smartmultiwindow.activesplit=0
+com.vivo.smartmultiwindow.audosplit=0
+com.vivo.smartmultiwindow.suggestsplit=0
 com.vivo.smartmultiwindow.whitelist.switch.freeform=on
 com.vivo.smartmultiwindow.whitelist.switch=on
 com_bbk_VoiceAssistant_motion_start=0
 com_bbk_VoiceAssistant_update_app=1
 com_bbk_VoiceAssistant_update_contact=1
 com_bbk_VoiceAssistant_upload_contact=1
-com_vivo_agent_pid=2405
+com_vivo_agent_fullscreen_isshowing=0
+com_vivo_agent_pid=17035
+com_vivo_agent_wakeup_model_filename=XiaoVXiaoV.uim
 com_vivo_agent_wakeup_voiceprint_trained=1
-com_vivo_voicewakeup_pid=7808
+com_vivo_voicewakeup_pid=7894
 contacts=1
+countdown_open=0
+crontab_meeting=-1
 crontab_time=-1
-crontab_vision=PD1838_A_6.19.5
+crontab_vision=PD1963_A_5.8.8
 cur_font_type=0
 current_area=N
+current_desktop_layout=1
+current_desktop_type=0
 current_game_package=
-current_game_pkg_name=com.bilibili.a3
+current_game_pkg_name=com.qihoo360.mobilesafe
+customize_appellation=
 data_uage_exception_remind=1
 data_uage_monitor=1
 data_uage_warning_remind=1
 data_usage_show_flow=1
 data_usage_show_flow_dual_value=1
-data_usage_show_speed=1
+data_usage_show_speed=0
 date_format=yyyy-MM-dd
-desktop_wallpaper=wallpaper_fos10_default
-desktop_wallpaper_res=com.bbk.theme,res:com.bbk.theme.resources:drawable/wallpaper_fos10_default
+default_desktop_type=0
+desktop_wallpaper=bbk.livewallpaper
+desktop_wallpaper_res=ComponentInfo{com.vivo.livewallpaper.galaxy/com.vivo.livewallpaper.galaxy.LiveWallpaperService}
 device_current_country=cn
 dialpadopen=1
 dim_screen=1
-disable_vibration_dynamic_phone_sim1=0
+disable_screen_capture_on=0
+disable_smart_key_on=0
+disable_vibration_dynamic_message_sim1=0
+disable_vibration_dynamic_notification=0
+disable_wlan_auto_connection_on=0
 disabled_game_count_down=
 display_wakeup_word=灏廣灏廣
 drive_mode_ringing_intercepted=0
 dtmf_tone=1
 dtmf_tone_type=0
-electroic_mode_enabled=0
-electroic_mode_subfunction=3
+easy_share_force_brightness_off=0
+easy_share_pc_sharing=0
 enable_bg_activity_feature=1
 enable_koc_feature=1
 enabled_assistant_games=
+enabled_competition_mode=
 enabled_game_count_down=null
-enabled_performance_optimization=
-enabled_refuse_special_game=
-enabled_shield_bottom_button=
-enabled_shield_gesture_app=
-enabled_shield_screen_capture=
-enabled_shield_smart_key=
-enabled_shield_top_preview=
+enabled_lock_screen_brightness=
+enabled_sideslide_assistant_games=
 enabled_suspend_mode_games=
 enabled_vivo_wifi_gaming_2_mobile=
-faceunlock_adjust_brightness_brightness=20
-faceunlock_adjust_brightness_color=16318456
-faceunlock_adjust_brightness_duration=800
-faceunlock_adjust_brightness_product=read_config_fail
-faceunlock_adjust_brightness_start_brightness=6
-faceunlock_adjust_screen_brightness=0
-faceunlock_enabled=0
+end_button_behavior=2
+enter_exit_app_animation=2
+faceunlock_adjust_brightness_color=16776698
+faceunlock_adjust_brightness_duration=0
+faceunlock_adjust_brightness_end=10
+faceunlock_adjust_brightness_start=10
 faceunlock_failure_count=0
-faceunlock_secure_open=0
+faceunlock_screen_doze=0
+finger_face_unlock=0
 finger_for_bouncer_show=0
 finger_secure_open=0
 finger_simpinpuk=enable
 finger_unlock_open=0
 fingerprint_failure_count=0
+fingerprint_quick_launch=1
+fingerprint_running_status=0
 fingerprint_support_vivopay=1
-fingerprint_touch_gesture=0
 firewall_reject_3g_uids=
 firewall_reject_wifi_uids=
-flash_light_remind_calendar=0
-flash_light_remind_message=0
-flash_light_remind_phone=0
+first_enrol_flag=1
+first_face_enrolled=1
+flash_charge_animation_style=0
 flow_version=1
 font_scale=1.0
 font_size=0
 fp_take_photo=1
+fpunlock_privacy_user_enabled=0
+freeform_adjust_bounds_once=0
 freeform_adjustforime_when_resize=0
+freeform_floatmessage_run=
+freeform_fullscreen_mode=0
 freeform_minimize=0
 freeform_moved_to_second_display=0
 freeform_resize=0
 freeform_rotate_when_resize=0
 freeform_support_gamemode7=1
 game_do_not_disturb=1
+game_show_ime_pos=-1
 game_speed_app_settings=cn.wsds.gamemaster,杩呮父鎵嬫父鍔犻€熷櫒:com.netease.uu,UU鍔犻€熷櫒
+gamecube_block_notification_on=0
+gamecube_competition_mode_state=1
+gamecube_competition_system_state=1
 gamecube_hawkeye_effective=0
+gamecube_shield_bottom_button_on=0
 gamecube_shorten_status_bar_trigger_area_on=0
+gamecube_update_8_1_data=1
 gearhead:driving_mode_settings_enabled=0
-global_animation_le_screenoff_switch=0
-global_animation_le_screenon_switch=0
-global_animation_le_time_end=00:00
-global_animation_le_time_start=06:00
-global_search_enable=1
+global_animation_le_notification_package_white_list=com.tencent.mm;com.tencent.mobileqq;com.sie.mp;com.android.mms.service;
+global_animation_usb_style=3001
 had_used_fast_screenshot=1
-handGesture=2
+handGesture=1
 haptic_feedback_enabled=0
 hearing_aid=0
 hiboard_enabled=1
 hide_rotation_lock_toggle_for_accessibility=0
+iflytek.deviceid.key=288534a9dbb233181896b7ffcc6f42cd3
 install_state=false
-isFindPhoneOpened=1
+inverted_mode_end_hour=7
+inverted_mode_end_minute=2
+inverted_mode_start_hour=20
+inverted_mode_start_minute=58
 is_dual_card_same_closed=0
+is_first_free_form_used=1
 is_from_nfc_bbk=-1
 is_game_mode=0
+is_have_privacy_password=1
+is_three_finger_guide_showed=1
 jishi_time=-1
 jovi_double_click_key_function=vision
 jovi_key_function=vision
+jovi_key_input=open
 jovi_longpress_key_function=voice
 jovi_new_card_animation_flag=0
 jovi_suggestion_phone=1
 jovi_suggestion_subway_code=1
 key_button_light_control_mode=0
 key_vibrate_state=1
+keyguard_background_finger_color=1
 keyguard_launch_camera_state=2
 keyguard_launch_emergency_dialer_state=0
 last_cache_file_num=0
 last_holiday_res_id=-1
+launcher_dynamic_enable=0
 launcher_infinite_scrolling_enable=0
+launcher_style=0
 listview_oversroll=0
 location_black_list=com.immomo.momo,
 location_white_list=
 com.tencent.mm,com.baidu.map.location,com.qnche,so.ofo.labofo,com.mobike.mobikeapp,com.sdu.didi.psnger,com.autonavi.minimap,com.baidu.BaiduMap,com.tencent.map,com.amap.android.location,com.eg.android.AlipayGphone,com.tencent.mobileqq,
 
-lock_screen_theme_id=18
-lock_to_app_enabled=0
-lockscreen_sounds_enabled=1
-lockscreen_wallpaper=wallpaper_fos10_default
+lock_game_rotation=-1
+lock_screen_bright_on=0
+lock_screen_theme_id=15
+lock_screen_theme_id_2=/data/bbkcore/unlock/1573815747386.zip
+lock_screen_theme_id_3=1573815747386
+lock_screen_theme_tradition_id=18
+lock_screen_zip_id=15
+lockscreen_sounds_enabled=0
+lockscreen_wallpaper=/data/bbkcore/theme/wallpaper/default_lock_wallpaper.png
 mb_time=-1
 message_sent_sound=1
-message_sound=content://media/internal/audio/media/155
+message_sound=content://media/internal/audio/media/55
 message_sound_set=1
-message_sound_sim2=content://media/internal/audio/media/156
+message_sound_sim2=content://media/internal/audio/media/72?title=Default&canonical=1
 message_sound_sim2_set=1
 messge=1
 minscreen_state_switch=0
-mode_ringer_ext=2
+mode_ringer_ext=1
 mode_ringer_streams_affected=422
-ms=1
+ms=-99
+musicwidget_list_type_key=["3","0","1","4"]
 mute_streams_affected=111
-net_state_class_1=1
-net_state_class_2=1
-next_alarm_formatted=鍛ㄤ笁14:02
-nightPearlMsgStatus=63
-night_remind=1
-nightpearl_has_jovi_msg=0
-nightpearl_is_showing=0
+net_state_class_1=4
+net_state_class_2=4
+next_alarm_formatted=鍛ㄥ洓20:58
+nightPearlMsgStatus=8
 no_screen_locker=0
 notification_light_pulse=1
-notification_sound=content://media/internal/audio/media/115
+notification_sound=content://media/internal/audio/media/56
 notification_sound_set=1
+notification_wake_up=0
 numbermark_status=1
 offline_time=-1
+one_touch_connect_open_wifi=1
 onehand=1
-pcvb_ustats={"psc":0,"vwc":23,"dcc":0,"pooc":13,"pujc":0,"pojc":0,"puoc":1}
 pemMonsterState=0
 pem_clear_flags=1
+pem_htp_thred=43-52-58-1000-1000-1000
+pem_in_sleepmode=0
 pempsmstate=1
-perf_game_list=com.tencent.tmgp.sgame:com.tencent.tmgp.pubgmhd:com.netease.hyxd.vivo:
 perm_defaultapp_notify_config=1
+persist.vivo.keyguard.multiuser.has.switch=0
 phonecall_silent=1
 picture=1
 pointer_location=0
@@ -316,86 +362,96 @@ pointer_speed=0
 portrait=0
 power_save_type=1
 power_shutdown=0
-power_sleep_mode_enter=3
+power_sleep_mode_enabled=1
+power_sleep_mode_enter=-1
 powermonitor=1
-poweroff_time=-1
-poweron_time=-1
+poweroff_time=1618585320000
+poweron_time=1618630380000
 pref_key_website_check=0
-privacy_encrypt=0
+pref_replace_icon=1
+priority_interruptions_state=1
 protect_lock=1
 pull_up_floating_ball_toast=1
 radio.data.stall.recovery.action=0
-recent_touch_package_name=com.iqoo.secure
+recent_privacy_setting=1
+recent_touch_package_name=com.vivo.agent
+reject_call_on=0
+resolver_activity_show_sort_tips=1
 ring_vol_change_by_keys=1
 ringermode=2
-ringtone=content://media/internal/audio/media/214
+ringtone=content://media/internal/audio/media/120?title=Jovi%20Lifestyle&canonical=1
 ringtone_set=1
-ringtone_sim2=content://media/internal/audio/media/228
+ringtone_sim2=content://media/internal/audio/media/120?title=Jovi%20Lifestyle&canonical=1
 ringtone_sim2_set=1
 sceneLauncherClassName=com.bbk.scene.indoor.ui.IndoorHome2Activity
 sceneLauncherPackageName=com.bbk.scene.indoor
-screen_brightness=39
+screen_brightness=40
 screen_brightness_change_by=android
 screen_brightness_for_vr=86
 screen_brightness_mode=1
 screen_brightness_mode_off_by=
-screen_off_remind=0
-screen_off_remind_style=309
-screen_off_remind_temp=0
-screen_off_timeout=600000
+screen_off_timeout=1800000
 screenrecord_dnd=0
+screenshot_sounds_enabled=0
+sdk_game_scene=com.netease.l10.vivo_18585_0
 search_data_change=1
-settingAvatarPath=/storage/emulated/0/Android/data/com.bbk.account/cache/avatar/70587c598dc4c441
-settings_new_mixpwd_changed=0
-sf=1
-share_auto_delete_switch=0
-shortcut_new_tips=0
-shortcut_next_sync=1615910400000
-show_battery_percentage=1
+service_explain_agree=1
+settingAvatarPath=/storage/emulated/0/Android/data/com.bbk.account/cache/avatar/8a9ba95b58be94f8
+setting_from_theme=0
+setting_vivo_store_enhance=1
+setup_wizard_display=0
+setup_wizard_has_run=1
+sf=0
+shecdule_inverted_mode=1
+show_all_desktop_icon=1
+show_battery_percentage=2
 show_schedule=1
 show_touches=0
 show_usb_option=1
-sim_state=1
+sim_state=0
 sim_type_1=USIM
 sim_type_2=null
+smart_network_speed_distribution=1
 smartkey_shot_switch=1
-smartmultiwindow_direct_freeform=0
-smartmultiwindow_freeform=0
 smartmultiwindow_freeform_external_mode=0
-sn1=46001
+sn1=null
 sn2=null
-soft_wakeup_enhance_enabled=1
+snooze_notify=-1
+soft_wakeup_enhance_enabled=0
 software_lock_password_right=0
-sound_effects_enabled=0
-st1=86353
+sound_effects_enabled=1
+st1=0
 st2=0
+status_bar_keygard_notification=1
+statusbar_notification_icon_redraw=0
 stringId=-1
 superx_notification_selector=1
+support_app_animation_window=1
 system_locales=zh-CN
+systemui_upslide_merged_supported=true
+theme_icons_style=1
+theme_id=34
+theme_style=general
 thirdapp.notifyconfig=1
 time_12_24=24
-time_picker_end_time=00:00
-time_picker_start_time=06:00
-touch.stats={"min":0.027450982481241226,"max":0.0470588281750679}
+tips_guide_notifi_time=1618541001903
+tips_preload_time=1618516215251
 touch_scan_press_time_delay=101
 touch_scan_press_time_delay_grade=2
 tty_mode=0
-udfp_fingerprint_icon_style=2
-udfp_move_wake=0
-udfp_unlock_effect_style=15
+unlock_enter_launcher_animation=0
 upslide_quick_launch_apps=none;com.android.settings,0;com.android.dialer,0;com.android.camera,0;com.android.contacts,0;com.android.mms,0
 usb_first_plug_in=1
-use_aod_infinity=0
 use_thai_calendar=false
-user_app_crash_dialog_show=1
 user_experience_improve_level=1
 user_experience_improve_plan=1
 user_experience_improve_plan_first_close=0
 user_rotation=0
+variable_icons_raduis1=80
 verify_code_protected_enable=1
 vibrate_in_silent=1
 vibrate_when_ringing=0
-vibratemode=0
+vibratemode=1
 video_record_status=-1
 visit_mode=0
 visit_password=0
@@ -403,6 +459,7 @@ vivo.jovi.carmode.authorize=0
 vivo.screen_record_switch_setting=1
 vivo_children_mode_enable=false
 vivo_dblclick_to_off_screen=0
+vivo_dial_tone_mode=1
 vivo_freeform_systemui_noti_request=0
 vivo_fullscreen_flag=0
 vivo_gamethermal_switch=1
@@ -410,10 +467,16 @@ vivo_gesture_type_m_setting=0
 vivo_gesture_type_s_setting=0
 vivo_gesture_type_v_setting=0
 vivo_invalidity_password=0
+vivo_jovi_backer_wakeup_switch=0
+vivo_jovi_power_wakeup_switch=1
 vivo_jovi_smart_voice_installed=1
+vivo_jovi_smart_voice_need_user_retraining=0
+vivo_jovi_smart_voice_trained_model_version=1000007
 vivo_mini_screen_gesture_enable=0
 vivo_mix_maxlength=0
 vivo_mood_picture_setting_enable=1
+vivo_nightmode_level=99
+vivo_nightmode_used=-2
 vivo_rtsp_max_udp_port=65535
 vivo_rtsp_min_udp_port=1024
 vivo_rtsp_name=Streaming
@@ -423,208 +486,48 @@ vivo_rtsp_to_proxy=10.0.0.172
 vivo_s_application_settings=4
 vivo_scrawl_play_unlock=1
 vivo_scrawl_setting_enable=1
-vivo_screen_auto_brightness=39
-vivo_settings_realtime_steps=15
+vivo_screen_auto_brightness=40
+vivo_settings_realtime_steps=0
 vivo_share_update_quick=0
-vivo_smart_ring_enable_setting=1
+vivo_smart_ring_enable_setting=0
 vivo_smartmulitwindow_is_allowed_split=0
-vivo_sunrise_time_millis=1598393260227
-vivo_sunset_time_millis=1598438960930
+vivo_sunrise_time_millis=1592430155642
+vivo_sunset_time_millis=1592392397969
 vivo_three_fingers_switching_enabled=0
 vivo_type_lockscreen_wallpaper=0
 vivo_v_application_settings=1
 vivo_vibrate_in_silent_enable=1
-vivo_vibrate_on=4
+vivo_vibrate_on=5
 vivo_vibrate_when_calling_enable=1
-vivo_webview_night_css=function openVivoNightMode() {
-  var html = document.querySelector("html");
-  var style = document.createElement("style");
-  var head = document.querySelector("head");
-
-  var meituan = '';
-  var meituan_img = `
-    .img-cover {
-      background-color: transparent !important;
-    }
-  `;
-  var maoyan = '';
-  var maoyan_dots = `
-        .dots {
-      background-color: transparent !important;
-    }
-    .dots span {
-        background-color: #ccc !important;
-    }
-    .dots .active {
-        background-color: #fff !important;
-    }
-  `;
-  if(window.location.host == "i.meituan.com") {
-    meituan = meituan_img;
-  };
-  if(window.location.host == "m.maoyan.com") {
-    maoyan = maoyan_dots;
-  };
-  if (!html.classList.contains("vivo-night-mode")) {
-    style.setAttribute("class", "vivo-black");
-    html.classList.add("vivo-night-mode");
-    var cssText = document.createTextNode(`
-      .*,*:before,*:after{
-        background-color:#0a0d13 !important;
-        color:#646974 !important;
-        box-shadow:none !important;
-        text-shadow:none !important;
-        border-color:#252e39 !important;
-        -webkit-border-image:none !important;border-image:none !important;
-      }
-      body {
-        background-color:#0a0d13 !important;
-      }
-      html, body, div, p, h1, h2, h3, h4, h5, h6, span, button, header, footer, section, article, a, aside, caption, img, input, ul, li, option, select, table, tbody, td, th, tfoot, th, thead{
-        background-color:#0a0d13 !important;
-        color: #646974 !important;
-        box-shadow:none !important;
-        text-shadow:none !important;
-        border-color:#252e39 !important;
-        -webkit-border-image:none !important;border-image:none !important;
-      }
-      div:after, div:before, p:after, p:before, h1:after, h1:before, h2:after, h2:before,h3:after, h3:before ,h4:after, h4:before, h5:after, h5:before, h6:after, h6:before,
-      span:after, span:before,button:after, input:before,input:after{
-        background-color:#0a0d13 !important;
-        color: #646974 !important;
-        border-color:#252e39 !important;
-        -webkit-border-image:none !important;border-image:none !important;
-      }
-      ${meituan}
-      ${maoyan}
-      a,a *{
-        color:#3c5d85 !important;
-        text-decoration:none !important;
-        -webkit-tap-highlight-color: rgba(63,93,133,.75) !important;
-      }
-      a:hover,a:hover *{
-        color:#3f6c9b !important;
-        background:#1B1E23 !important;
-      }
-      a:visited,a:visited *,a:active,a:active *{
-        color:#5c3668 !important;
-      }
-      select,option,button,textarea{
-        color:#7A7A7A !important;
-        background:#1a1d28 !important;
-        border:1px solid;
-        border-color:#252e39 #252e39 #252e39 #252e39 !important;
-      }
-      select:hover,option:hover,button:hover,textarea:hover,select:focus,option:focus,button:focus,textarea:focus{
-        color:#777777 !important;
-        background:#1a1d28 !important;
-        border-color:#252e39 #252e39 #252e39 #252e39 !important;
-      }
-      input,input[type=text],input[type=search],input[type=password]{
-        border-color:#1a1c27 !important;
-        border-style:1px solid;
-        box-shadow:1px 0 4px rgba(16,18,23,.75) inset,0 1px 4px rgba(16,18,23,.75) inset !important;
-        background-color:#0a0d13 !important;
-        color:#61615f !important;
-      }
-      input:focus,input[type=text]:focus,input[type=search]:focus,input[type=password]:focus,input[type=tel]:focus,input[type=email]:focus{
-        border-color:#0B325C !important;
-        outline:none !important;
-        color:#777777 !important;
-        background:#0a0d13 !important;
-      }
-      input:hover,select:hover,option:hover,button:hover,textarea:hover,input:focus,select:focus,option:focus,button:focus,textarea:focus{
-        color:#777777 !important;
-        background:#5A5A5A !important;
-        border-color:#252e39 #252e39 #252e39 #252e39 !important;
-      }
-      input[type=button],input[type=submit],input[type=reset],input[type=image]{
-        color:#61615f !important;
-        border-color:#888888 #666666 #666666 #888888 !important;
-      }
-      input[type=button],input[type=submit],input[type=reset]{
-        background-color: #181a23!important;
-        border-color:#262939 !important;
-      }
-      input[type=button]:hover,input[type=submit]:hover,input[type=reset]:hover,input[type=image]:hover{
-        border-color:#252e39 #252e39 #252e39 #252e39 !important;
-      }
-      input[type=button]:hover,input[type=submit]:hover,input[type=reset]:hover{
-        background-color: #262939!important;
-        border:1px solid #666666 !important;
-      }
-      img{
-        border-color:#111111 !important;
-      }
-      ::-webkit-input-placeholder{
-        color:#61615f !important;
-      }
-
-      ::-webkit-scrollbar-thumb{
-          background-color:#666666 !important;
-      }
-      ::-webkit-scrollbar-track-piece{
-          background-color:#2a2d33 !important;
-      }
-      hr{
-          border-color:#252e39 !important;
-      }
-
-      video, iframe, canvas, svg,amp-social-share,
-      embed[type='application/x-shockwave-flash'],
-      object[type='application/x-shockwave-flash'],
-      *[style*='url('] {
-          -webkit-filter : opacity(50%);
-          -ms-filter     : opacity(50%);
-          filter         : opacity(50%);
-      }
-
-      input[type=text],input[type=password] {
-        background-image: none;
-      }
-      .input-box{
-        border:1px solid;
-        border-color:#252e39 #252e39 #252e39 #252e39 !important;
-      }
-    `);
-    style.appendChild(cssText);
-    head.appendChild(style);
-  } else {
-    return;
-  }
-}
-
-function closeVivoNightMode() {
-  var html = document.querySelector("html");
-  var blackStyle;
-  if (!!document.querySelector(".vivo-black")) {
-    blackStyle = document.querySelector(".vivo-black");
-  }
-  var head = document.querySelector("head");
-  html.classList.remove("vivo-night-mode");
-  if (blackStyle != null) {
-    head.removeChild(blackStyle);
-  }
-}
+vivo_vivoice_launchable=1
+voice_broadcast=open
+voice_tone=0
+voicewakeup_aov_config=1
 voicewakeup_switch=1
 volume_alarm=6
-volume_assistant_speaker=7
+volume_alarm_speaker=1
+volume_assistant_speaker=11
 volume_bluetooth_sco=7
+volume_bluetooth_sco_earpiece=15
 volume_music=10
+volume_music_bt_a2dp=7
+volume_music_headset=0
 volume_music_speaker=0
 volume_music_speaker_Delta=0
 volume_notification=5
-volume_notification_speaker=4
+volume_notification_speaker=2
 volume_ring=5
-volume_ring_bt_a2dp=1
-volume_ring_bt_a2dp_hp=1
-volume_ring_headphone=1
-volume_ring_headset=1
-volume_ring_speaker=1
+volume_ring_bt_a2dp=0
+volume_ring_bt_a2dp_hp=0
+volume_ring_headphone=0
+volume_ring_headset=0
+volume_ring_speaker=0
 volume_system=4
 volume_voice=4
-volume_voice_earpiece=6
-volume_voice_speaker=1
+volume_voice_earpiece=4
 vtouch_switch=1
+wakeup_auto_enabled=1
+wakeup_enhance_enabled=0
+wakeup_enhancement_switch=1
 wakeup_word_type=0
 wifi_tether_first_turned_on=1
