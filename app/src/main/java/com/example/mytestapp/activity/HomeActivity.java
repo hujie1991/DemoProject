@@ -20,6 +20,8 @@ public class HomeActivity extends BaseListActivity {
     @Override
     public void initData(List<BaseItemEntity> datas) {
         datas.add(new BaseItemEntity("读取应用使用记录", "UsageStatsActivity"));
+        datas.add(new BaseItemEntity("Vivo最近任务调试", "VivoTaskActivity"));
+        datas.add(new BaseItemEntity("Oppo最近任务调试", "OppoTaskActivity"));
 //        datas.add(new BaseItemEntity("高德定位", "GdLocationActivity"));
         datas.add(new BaseItemEntity("websocket", "WebSocketActivity"));
         datas.add(new BaseItemEntity("快捷方式测试", "ShortcutActivity"));
@@ -32,7 +34,6 @@ public class HomeActivity extends BaseListActivity {
 //        datas.add(new BaseItemEntity("触发一个null异常", null));
         datas.add(new BaseItemEntity("截屏", "ScreenshotActivity"));
 //        datas.add(new BaseItemEntity("ui测试页面", "UiTestActivity"));
-//        datas.add(new BaseItemEntity("悬浮窗Activity", "SuspensionActivity"));
 //        datas.add(new BaseItemEntity("设备管理器Activity", "DeviceAdminActivity"));
 //        datas.add(new BaseItemEntity("步数传感器设置", "StepCounterActivity"));
 //        datas.add(new BaseItemEntity("Activity生命周期", "ActivityLifeCycle"));
